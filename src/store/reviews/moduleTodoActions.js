@@ -14,10 +14,7 @@ export default {
 
     getReviews({commit}) {
       return new Promise((resolve, reject) => {
-		let a = localStorage.getItem('userInfo')
-		let b = JSON.parse(a).permissions
-		let url = ( b.includes("get_my_reviews") ) ? "https://partners.tripcarte.asia/wp-json/tripcarte_api/v1/my/reviews" : "https://partners.tripcarte.asia/wp-json/tripcarte_api/v1/reviews"
-        axios.get( url,  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } } )
+        axios.get("https://partners.tripcarte.asia/wp-json/tripcarte_api/v1/reviews",  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } } )
           .then(res => {
             commit('SET_REVIEWS', res.data)
             resolve(res)

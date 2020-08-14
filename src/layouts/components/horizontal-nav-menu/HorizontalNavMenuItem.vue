@@ -56,7 +56,6 @@ export default {
       return this.iconSmall ? 'w-3 h-3 mr-3' : 'w-5 h-5 mr-3'
     },
     canSee() {
-	  return this.$store.state.AppActiveUser.permissions.includes('123');
       this.$acl.check(this.$store.state.AppActiveUser.userRole)
       return this.to ? this.$acl.check(this.$router.match(this.to).meta.rule) : true
     },
