@@ -17,13 +17,6 @@ import colors from "@/../themeConfig.js"
 
 // *From Auth - Data will be received from auth provider
 const userDefaults = {
-  uid         : 0,          // From Auth
-  displayName : "Tripcarte.Asia Guest", // From Auth
-  about       : "Request for More Info – We will Call You",
-  photoURL    : require("@/assets/images/portrait/small/avatar-s-11.jpg"), // From Auth
-  status      : "online",
-  userRole    : "admin",
-  permissions : {},
 }
 
 const userInfoLocalStorage = JSON.parse(localStorage.getItem("userInfo")) || {}

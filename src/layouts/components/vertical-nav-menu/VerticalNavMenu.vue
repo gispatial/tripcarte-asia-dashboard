@@ -81,6 +81,7 @@
                 :href="item.slug === 'external' ? item.url : null"
                 :icon="item.icon" :target="item.target"
                 :isDisabled="item.isDisabled"
+				:permissionName="item.permissionName"
                 :slug="item.slug">
                   <span v-show="!verticalNavMenuItemsMin" class="truncate">{{ $t(item.i18n) || item.name }}</span>
                   <vs-chip class="ml-auto" :color="item.tagColor" v-if="item.tag && (isMouseEnter || !reduce)">{{ item.tag }}</vs-chip>

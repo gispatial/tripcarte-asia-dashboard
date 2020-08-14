@@ -3,7 +3,6 @@
 
     <div class="text-right leading-tight hidden sm:block">
       <p class="font-semibold">{{ activeUserInfo.user_display_name }}</p>
-      <small>{{ activeUserInfo.userRole }}</small>
     </div>
 
     <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
@@ -60,24 +59,12 @@ export default {
   },
   methods: {
     logout() {
-
-        // if user is logged in via auth0
-        if (this.$auth.profile) this.$auth.logOut();
-
-        // if user is logged in via firebase
-        const firebaseCurrentUser = firebase.auth().currentUser
-
-        if (firebaseCurrentUser) {
-            firebase.auth().signOut().then(() => {
-                this.$router.push('/pages/login').catch(() => {})
-            })
-        }
         // If JWT login
         if(localStorage.getItem("accessToken")) {
           localStorage.removeItem("accessToken")
           this.$router.push('/pages/login').catch(() => {})
         }
-
+this.$store.state.AppActiveUser = {};
         // Change role on logout. Same value as initialRole of acj.js
         this.$acl.change('admin')
         localStorage.removeItem('userInfo')

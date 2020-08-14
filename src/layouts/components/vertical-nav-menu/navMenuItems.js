@@ -39,7 +39,7 @@ export default [
       slug: "colors",
       icon: "MonitorIcon",
       i18n: "DASHBOARD",
-      permissionName: '_dashboard'
+      permissionName: "read_product",
     },
     {
       url: '/syst/ag-grid-table',
@@ -61,7 +61,7 @@ export default [
           tagColor: "primary",
           icon: "FeatherIcon",
           i18n: "REVIEWS",
-          permissionName: 'get_my_reviews'
+          permissionName: [ 'get_reviews', 'get_my_reviews' ]
         },
         {
   url: '/components/tabs',
