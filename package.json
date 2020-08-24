@@ -1,5 +1,5 @@
 {
-  "name": "tripcarte-progressive-web-app-dashboard",
+  "name": "tripcarte-asia-dashboard",
   "version": "4.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",

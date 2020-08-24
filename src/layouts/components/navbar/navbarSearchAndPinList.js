@@ -17,8 +17,8 @@ export default {
       {title: "E-Commerce Checkout",        url: "/apps/eCommerce/checkout",            icon: "CreditCardIcon",     is_bookmarked: false},
 
       // UI ELEMENTS
-      { title: "Data List - List View",     url: "/syst/data-list/list-view",    icon: "ListIcon",           is_bookmarked: false},
-      {title: "Data List - Thumb View",    url: "/syst/data-list/thumb-view",   icon: "ImageIcon",          is_bookmarked: false},
+      { title: "Data List - List View",     url: "/syst/data-list/redeem",    icon: "ListIcon",           is_bookmarked: false},
+      {title: "Data List - Thumb View",    url: "/syst/data-list/payouts",   icon: "ImageIcon",          is_bookmarked: false},
       {title: "Vuesax Grid",               url: "/syst/grid/vuesax",            icon: "LayoutIcon",         is_bookmarked: false},
       {title: "Tailwind Grid",             url: "/syst/grid/tailwind",          icon: "LayoutIcon",         is_bookmarked: false},
       {title: "Colors",                    url: "/syst/colors",                 icon: "DropletIcon",        is_bookmarked: false},
