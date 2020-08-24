@@ -41,23 +41,25 @@
 export default {
   name: 'v-nav-menu-item',
   props: {
-    icon        : { type: String,                 default: ""               },
-    iconSmall   : { type: Boolean,                default: false            },
-    iconPack    : { type: String,                 default: 'material-icons' },
-    href        : { type: [String, null],         default: '#'              },
-    to          : { type: [String, Object, null], default: null             },
-    slug        : { type: String,                 default: null             },
-    index       : { type: [String, Number],       default: null             },
-    featherIcon : { type: Boolean,                default: true             },
-    target      : { type: String,                 default: '_self'          },
-    isDisabled  : { type: Boolean,                default: false            },
-    permissionName      : { type: String,                 default: ''          },
+    icon        	: { type: String,                 default: ""               },
+    iconSmall   	: { type: Boolean,                default: false            },
+    iconPack    	: { type: String,                 default: 'material-icons' },
+    href        	: { type: [String, null],         default: '#'              },
+    to          	: { type: [String, Object, null], default: null             },
+    slug        	: { type: String,                 default: null             },
+    index       	: { type: [String, Number],       default: null             },
+    featherIcon 	: { type: Boolean,                default: true             },
+    target         	: { type: String,                 default: '_self'          },
+    isDisabled	   	: { type: Boolean,                default: false            },
+    permissionName 	: { type: [String, Array],       default: null	    		},
   },
   computed: {
     canSee() {
-      return this.permissionName ? this.$store.state.AppActiveUser.permissions.includes(this.permissionName) : true
-      //this.$acl.check(this.$store.state.AppActiveUser.userRole)
-      //return this.to ? this.$acl.check(this.$router.match(this.to).meta.rule) : true
+		if( Array.isArray(this.permissionName) ) {
+			return this.$store.state.AppActiveUser.permissions.some( r => this.permissionName.includes(r) )
+		} else {
+			return this.$store.state.AppActiveUser.permissions.includes(this.permissionName)
+		}
     },
     activeLink() {
       return ((this.to == this.$route.path) || (this.$route.meta.parent == this.slug) && this.to) ? true : true

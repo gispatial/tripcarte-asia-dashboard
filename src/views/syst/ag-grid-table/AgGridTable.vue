@@ -57,7 +57,6 @@
         rowSelection="multiple"
         colResizeDefault="shift"
         :animateRows="true"
-        :floatingFilter="true"
         :pagination="true"
         :paginationPageSize="paginationPageSize"
         :suppressPaginationPanel="true"

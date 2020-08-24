@@ -18,12 +18,12 @@
                     <h6 class="todo-title" :class="{'line-through': taskLocal.isCompleted}">{{ review.title }}</h6>
                   -->
                   <vs-chip>
-                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;
+                    5<feather-icon icon="StarIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
                     <h5 class="todo-title">{{ review.product_name }}</h5></vs-chip>
                   <div>
                     <vs-chip>
-                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6">
-                      <h6 class="todo-title">{{ review.extra }}</h6>
+                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;
+                      <h6>Family ...</h6>
                     </feather-icon>
                     </vs-chip>
                   </div>
@@ -45,7 +45,7 @@
                     </vs-chip>
                   -->
                   <vs-chip>
-                  <feather-icon icon="StarIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
+                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;
                         <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
                         <span>{{ review.timing }}</span>
                   </vs-chip>
@@ -85,6 +85,7 @@
                 <p class="mt-2 truncate">{{ review.extra }}</p>
             </div>
             <div>
+                <div class="vx-col w-full sm:w-1/4 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-base">
             <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl" class="related-product-swiper px-12 py-6">
               <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
                 <!-- Item Image -->
@@ -93,6 +94,7 @@
                 </div>
               </swiper-slide>
             </swiper>
+            </div>
             </div>
             </div>
         </div>

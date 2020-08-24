@@ -1,17 +1,23 @@
 /*=========================================================================================
-  File Name: moduleCalendarState.js
-  Description: Calendar Module State
+  File Name: moduleDataList.js
+  Description: Calendar Module
   ----------------------------------------------------------------------------------------
   Item Name: Tripcarte.Asia Dashboard Management Portal
     Author: Tripcarte.Asia
   Staging URL: http://tripcarte.gispatial.tech/api
 ==========================================================================================*/
 
+
+import state from './moduleComissionsState.js'
+import mutations from './moduleComissionsMutations.js'
+import actions from './moduleComissionsActions.js'
+import getters from './moduleComissionsGetters.js'
+
 export default {
-<<<<<<< HEAD
-  //products: [],
-  redemptions: [],
-=======
-  commissions: [],
->>>>>>> 4c57a7b97fcf2431afdae80b9d98f2316a835e56
+  isRegistered: false,
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
 }

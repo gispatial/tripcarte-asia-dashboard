@@ -22,7 +22,7 @@ import Router from 'vue-router'
 import auth from "@/auth/authService";
 
 import firebase from 'firebase/app'
-import 'firebase/auth'
+//import 'firebase/auth'
 
 Vue.use(Router)
 
@@ -236,30 +236,30 @@ const router = new Router({
         // UI ELEMENTS
         // =============================================================================
                 {
-                    path: '/syst/data-list/list-view',
-                    name: 'data-list-list-view',
-                    component: () => import('@/views/syst/data-list/list-view/DataListListView.vue'),
+                    path: '/syst/data-list/redeem',
+                    name: 'data-list-redeem',
+                    component: () => import('@/views/syst/data-list/redeem/DataListListView.vue'),
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/' },
                             { title: 'Redemptions'},
-                            { title: 'Commissions', active: true },
+                            { title: 'Redemptions-View', active: true },
                         ],
                         pageTitle: 'REDEMPTIONS',
                         rule: 'admin'
                     },
                 },
                 {
-                    path: '/syst/data-list/thumb-view',
-                    name: 'data-list-thumb-view',
-                    component: () => import('@/views/syst/data-list/thumb-view/DataListThumbView.vue'),
+                    path: '/syst/data-list/payouts',
+                    name: 'data-list-payouts',
+                    component: () => import('@/views/syst/data-list/payouts/DataListThumbView.vue'),
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/' },
                             { title: 'Data List'},
-                            { title: 'Thumb View', active: true },
+                            { title: 'Payout View', active: true },
                         ],
-                        pageTitle: 'Thumb View',
+                        pageTitle: 'PAYOUTS',
                         rule: 'admin'
                     },
                 },

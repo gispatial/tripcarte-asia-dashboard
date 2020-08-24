@@ -18,7 +18,7 @@ export default {
 		UI: 'Attractions and Merchants',
 		DataList: 'Data List',
 		ListView: 'List View',
-		ThumbView: 'Thumb View',
+		ThumbView: 'PAYOUTS',
 		Grid: 'Grid',
 		Vuexy: 'Vuexy',
     Vuesax: 'Vuesax',

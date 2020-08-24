@@ -9,21 +9,45 @@
 
 <template>
   <vs-tabs>
-    <vs-tab label="START SCANNING" icon-pack="feather" icon="icon-camera">
+    <vs-tab label="SCAN QR/ BARCODE" icon-pack="feather" icon="icon-camera">
+      <div class="demo-alignment">
+      <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
+
+      <vs-popup background-color="rgba(128,128,128)" :background-color-popup="colorx" class=""  title="SCAN QR" :active.sync="popupActive">
+
+        <p><h5>CLOSE THIS WINDOWS AFTER SCANNING DONE!</h5></p>
+        <p class="error">{{ error }}</p>
+
+        <p class="decode-result">Last result: <b>{{ result }}</b></p>
+
+        <qrcode-stream @decode="onDecode" @init="onInit" />
+      </vs-popup>
+  </div>
     <div>
-      <p class="error">{{ error }}</p>
-
-      <p class="decode-result">Last result: <b>{{ result }}</b></p>
-
-      <qrcode-stream @decode="onDecode" @init="onInit" />
+      <div>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or
+        </p>
+      </div>
 
       <ul>
+          <div>
+            <div class="flex bg-white p-6 chat-input-container">
+                <vs-input class="mr-3 w-full" v-model="chatMsgInput" @keyup.enter="chatMsgInput = 'post.order_items'" placeholder="Enter barcode" ></vs-input>
+                <vs-button icon-pack="feather" icon="icon-send" @click="chatMsgInput = ''"></vs-button>
+            </div>
+    </vs-prompt>
+      <!-- Append Button -->
+      <vx-input-group class="mb-base">
+      </vx-input-group>
+      <!-- /Append Button -->
+    </div>
       <vx-card>
-      <h4>Order details :</h4> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-       <h4>Name :</h4> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+      <h6>Order details :</h6> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+       <h6>Name :</h6> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
        </vx-card>
        <vx-card>
-        <h4>Redeem Details:</h4> <li v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></li>
+        <h6>Redeem Details:</h6> <li v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></li>
         </vx-card>
     </ul>
     </div>
@@ -39,9 +63,13 @@ export default {
   components: { QrcodeStream },
   data () {
     return {
+      activePrompt:false,
+      colorx:"#f85959",
+      popupActive: false,
       posts: '',
       barcode: '',
       result: '',
+      input2: '',
       error: ''
     }
   },
