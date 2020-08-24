@@ -5,6 +5,16 @@
       <p class="font-semibold">{{ activeUserInfo.user_display_name }}</p>
     </div>
 
+    <!-- Extra codes for logout -->
+    <div class="text-right leading-tight hidden sm:block">
+      <div class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
+            @click="logout">
+            <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4" />
+            <span class="ml-2">Logout</span>
+      </div>
+    </div>
+    
+
     <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
 
       <div class="con-img ml-3">

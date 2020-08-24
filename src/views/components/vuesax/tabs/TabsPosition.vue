@@ -33,8 +33,8 @@
       <ul>
           <div>
             <div class="flex bg-white p-6 chat-input-container">
-                <vs-input class="mr-3 w-full" v-model="chatMsgInput" @keyup.enter="chatMsgInput = 'post.order_items'" placeholder="Enter barcode" ></vs-input>
-                <vs-button icon-pack="feather" icon="icon-send" @click="chatMsgInput = ''"></vs-button>
+                <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
+                <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
             </div>
     </vs-prompt>
       <!-- Append Button -->
@@ -74,12 +74,11 @@ export default {
     }
   },
   methods: {
-    /*
     barcodesearch() {
-      axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: this.result },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
+      axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: this.barcode },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
                   .then( (response) => this.posts = response.data )
                   .catch(error => this.posts = [{order_id: 'Invalid Barcode!'}]);
-    },*/
+    },
     onDecode (result) {
       //this.result = result
       axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: result },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
