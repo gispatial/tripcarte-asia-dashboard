@@ -3,8 +3,8 @@
     Description: I18n demo
     ----------------------------------------------------------------------------------------
     Item Name: Tripcarte.Asia Dashboard Management Portal
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
+    Developer: Netquest's TripcarteDev Team
+    GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
 
 <template>

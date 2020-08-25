@@ -3,8 +3,8 @@
     Description: Rendering of default Tabs
     ----------------------------------------------------------------------------------------
     Item Name: Tripcarte.Asia Dashboard Management Portal
-    Author: Netquest
-    Author URL: http://demo.tripcarte.asia/
+    Developer: Netquest's TripcarteDev Team
+    GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
 
 <template>

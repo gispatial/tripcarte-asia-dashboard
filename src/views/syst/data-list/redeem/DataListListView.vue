@@ -3,8 +3,8 @@
   Description: Data List - List View
   ----------------------------------------------------------------------------------------
   Item Name: Tripcarte.Asia Dashboard Management Portal
-  Author: Netquest
-  Author URL: http://demo.tripcarte.asia/
+  Developer: Netquest's TripcarteDev Team
+  GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
 
 <template>
@@ -17,10 +17,17 @@
       <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
         <div class="flex flex-wrap-reverse items-center data-list-btn-container">
+          <vs-prompt title="Export To Excel" class="export-options" @cancle="clearFields" @accept="exportToExcel" accept-text="Export" @close="clearFields" :active.sync="activePrompt">
+              <vs-input v-model="fileName" placeholder="Enter File Name.." class="w-full" />
+              <div class="flex">
+                <span class="mr-4">Cell Auto Width:</span>
+                <vs-switch v-model="cellAutoWidth">Cell Auto Width</vs-switch>
+              </div>
+          </vs-prompt>
 
           <!-- ADD NEW -->
           <div>
-              <vs-button class="mb-4 md:mb-0" @click="gridApi.exportDataAsCsv()"><feather-icon icon="UploadIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="deleteData(tr.id)" />&nbsp;&nbsp;Export</vs-button>
+              <vs-button class="mb-4 md:mb-0" @click="activePrompt=true">&nbsp;&nbsp;Export</vs-button>
           </div>
         </div>
 
@@ -58,6 +65,7 @@
         <vs-th sort-key="price">Redeemed By</vs-th>
         <vs-th>Redeemed Date</vs-th>
       </template>
+
 
         <template slot-scope="{data}">
           <tbody>
@@ -122,10 +130,12 @@
 </template>
 
 <script>
+import vSelect from 'vue-select'
 import DataViewSidebar from '../DataViewSidebar.vue'
 import moduleDataList from "@/store/data-list/moduleDataList.js"
 export default {
-  components: {
+    components: {
+    vSelect,
     DataViewSidebar
   },
   data() {
