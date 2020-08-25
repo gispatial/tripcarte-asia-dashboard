@@ -22,8 +22,8 @@
                     <h5 class="todo-title">{{ review.product_name }}</h5></vs-chip>
                   <div>
                     <vs-chip>
-                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;
-                      <h6>Family ...</h6>
+                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+                      Family ...
                     </feather-icon>
                     </vs-chip>
                   </div>
@@ -90,7 +90,7 @@
               <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
                 <!-- Item Image -->
                 <div class="img-container w-48 mx-auto my-base">
-                <span><img class="responsive" :src="item" :alt="item"></span>
+                  <span><img class="responsive" :src="item" :alt="item"></span>
                 </div>
               </swiper-slide>
             </swiper>

@@ -9,11 +9,11 @@
     <div class="text-right leading-tight hidden sm:block">
       <div class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
             @click="logout">
+            <span class="ml-2"><b>Logout</b></span>&nbsp;
             <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Logout</span>
       </div>
     </div>
-    
+
 
     <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
 

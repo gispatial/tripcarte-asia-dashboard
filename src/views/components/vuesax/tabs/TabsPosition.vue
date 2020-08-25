@@ -12,15 +12,20 @@
     <vs-tab label="SCAN QR/ BARCODE" icon-pack="feather" icon="icon-camera">
       <div class="demo-alignment">
       <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
+      <vs-popup background-color="rgba(0, 0, 0, 0.74)" :background-color-popup="colorx" class="holamundo" title="" :active.sync="popupActive">
+        <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
+        <vx-card>
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">SCANS RESULTS</div>
+        <h6>Order details :</h6>
+        <div v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></div>
+         <h6>Name :</h6>
+         <div v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></div>
 
-      <vs-popup background-color="rgba(128,128,128)" :background-color-popup="colorx" class=""  title="SCAN QR" :active.sync="popupActive">
-
-        <p><h5>CLOSE THIS WINDOWS AFTER SCANNING DONE!</h5></p>
-        <p class="error">{{ error }}</p>
-
-        <p class="decode-result">Last result: <b>{{ result }}</b></p>
-
-        <qrcode-stream @decode="onDecode" @init="onInit" />
+           <p class="decode-result"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Last result:</div><b>{{ result }}</b></p>
+         <h6>Redeem Details:</h6>
+         <div v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></div>
+         </vx-card>
+         <qrcode-stream @decode="onDecode" @init="onInit" />
       </vs-popup>
   </div>
     <div>
@@ -47,7 +52,7 @@
        <h6>Name :</h6> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
        </vx-card>
        <vx-card>
-        <h6>Redeem Details:</h6> <li v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></li>
+        <h6>Redeem Details :</h6> <li v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></li>
         </vx-card>
     </ul>
     </div>
@@ -64,12 +69,14 @@ export default {
   data () {
     return {
       activePrompt:false,
-      colorx:"#f85959",
+      colorx:"#f16565",
       popupActive: false,
       posts: '',
       barcode: '',
       result: '',
       input2: '',
+      activeColor: '#d71414',
+      fontSize: 12,
       error: ''
     }
   },
