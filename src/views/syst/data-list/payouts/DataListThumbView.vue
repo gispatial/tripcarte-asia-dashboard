@@ -86,7 +86,7 @@
 
               <template>
               <vs-td>
-                <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">RM {{ rd.product_amount }}</vs-chip>
+                <p>RM {{ rd.product_amount }}</p>
               </vs-td>
               </template>
               <vs-td>
@@ -102,10 +102,10 @@
                 <p>{{ rd.redeem_user }}</p>
               </vs-td>
               <vs-td>
-                <p class="font-medium"> ???? </p>
+                <p class="font-medium"><vs-chip :color="getOrderStatusColor(rd.commission_status)" class="product-commission_status"> {{ rd.commission_status }} </vs-chip></p>
               </vs-td>
               <vs-td>
-                <p class="font-medium"> ???? </p>
+                <p class="font-medium"><vs-chip :color="getOrderStatusColor(rd.commission_status)" class="product-commission_status"> Redeemed </vs-chip></p>
               </vs-td>
               <vs-td>
                 <p class="font-medium">{{ rd.paid_date }}</p>
@@ -118,7 +118,7 @@
                 <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">Unpaid</vs-chip>
               </vs-td>
               -->
-              
+
               <!--
               <vs-td class="whitespace-no-wrap">
               <feather-icon icon="UploadIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click="activePrompt=true" />
