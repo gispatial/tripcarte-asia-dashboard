@@ -167,10 +167,8 @@ import moduleCommission from "@/store/commission/moduleCommission.js"
 
 export default {
   components: {
-    components: {
-      vSelect
-    },
-    DataViewSidebar
+    DataViewSidebar,
+    vSelect
   },
   data() {
     return {
@@ -182,6 +180,13 @@ export default {
       // Data Sidebar
       addNewDataSidebar: false,
       sidebarData: {},
+      fileName: "",
+      formats:["xlsx", "csv", "txt"] ,
+      cellAutoWidth: true,
+      selectedFormat: "xlsx",
+      headerTitle: ["Order ID", "Item", "Item Price", "Total Tickets", "Total Redeemed", "Redeemed Date", "Redeemed By", "Redemption Status", "Payment Status", "Payment Date"],
+      headerVal: ["order_id", "product_name", "product_amount","product_quantity", "redeem_qty", "redeem_date_gmt", "redeem_user", "paid_date", "paid_date", "paid_date"],
+      activePrompt: false,
     }
   },
   computed: {
@@ -201,7 +206,7 @@ export default {
   methods: {
     exportToExcel() {
       import('@/vendor/Export2Excel').then(excel => {
-        const list = this.selectedUsers
+        const list = this.selected
         const data = this.formatJson(this.headerVal, list)
         excel.export_json_to_excel({
           header: this.headerTitle,
@@ -212,6 +217,23 @@ export default {
         })
         this.clearFields()
       })
+    },
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        // Add col name which needs to be translated
+        // if (j === 'timestamp') {
+        //   return parseTime(v[j])
+        // } else {
+        //   return v[j]
+        // }
+
+        return v[j]
+      }))
+    },
+    clearFields() {
+      this.fileName = ""
+      this.cellAutoWidth = true
+      this.selectedFormat = "xlsx"
     },
     addNewData() {
       this.sidebarData = {}
