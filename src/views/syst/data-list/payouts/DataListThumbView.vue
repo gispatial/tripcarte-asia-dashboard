@@ -12,7 +12,7 @@
 
     <data-view-sidebar :isSidebarActive="addNewDataSidebar" @closeSidebar="toggleDataSidebar" :data="sidebarData" />
 
-    <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="redemptions">
+    <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="commissions">
 
       <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
@@ -34,7 +34,7 @@
         <!-- ITEMS PER PAGE -->
         <vs-dropdown vs-trigger-click class="cursor-pointer mb-4 mr-4 items-per-page-handler">
           <div class="p-4 border border-solid d-theme-border-grey-light rounded-full d-theme-dark-bg cursor-pointer flex items-center justify-between font-medium">
-            <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ redemptions.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : redemptions.length }} of {{ queriedItems }}</span>
+            <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ commissions.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : commissions.length }} of {{ queriedItems }}</span>
             <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4" />
           </div>
 
@@ -57,17 +57,16 @@
         </vs-dropdown>
       </div>
       <template slot="thead">
-        <vs-th sort-key="name">Order ID</vs-th>
-        <vs-th sort-key="category">Product | Item</vs-th>
-        <vs-th sort-key="price">Item Price</vs-th>
+        <vs-th>Order ID</vs-th>
+        <vs-th>Item</vs-th>
+        <vs-th>Item Price</vs-th>
         <vs-th>Total Tickets</vs-th>
         <vs-th>Total Redeemed</vs-th>
         <vs-th>Redeemed Date</vs-th>
-        <vs-th sort-key="price">Redeemed By</vs-th>
+        <vs-th>Redeemed By</vs-th>
         <vs-th>Redemption Status</vs-th>
         <vs-th>Payment Status</vs-th>
         <vs-th>Payment Date</vs-th>
-        <vs-th>Export</vs-th>
       </template>
 
         <template slot-scope="{data}">
@@ -75,43 +74,56 @@
             <vs-tr :data="rd" :key="keys" v-for="(rd, keys) in data">
 
               <vs-td>
-                <p class="product-name">{{ rd.id }}</p>
+                <p>{{ rd.order_id }}</p>
               </vs-td>
 
               <vs-td>
-                <p class="product-category font-medium truncate">{{ rd.name }}</p>
-                <vs-chip :color="getOrderStatusColor(rd.meta_data)" class="product-order-status">{{ rd.meta_data | title }}</vs-chip>
+                <p class="font-medium truncate">{{ rd.product_name }}</p>
+                <div :key="key" v-for="(att, key) in rd.attributes">
+                <vs-chip :color="getOrderStatusColor(rd.attributes)" class="product-order-status"> {{att.option_name}}</vs-chip>
+                </div>
               </vs-td>
 
               <template>
               <vs-td>
-                <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">$5{{ rd.redeemed }}</vs-chip>
+                <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">RM {{ rd.product_amount }}</vs-chip>
               </vs-td>
               </template>
               <vs-td>
-                <p>{{ rd.redeemed }}</p>
+                <p>{{ rd.product_quantity }}</p>
               </vs-td>
               <vs-td>
-                <p>{{ rd.redeemed }}</p>
+                <p>{{ rd.redeem_qty }}</p>
               </vs-td>
               <vs-td>
-                <p>{{ rd.timestamp }}</p>
+                <p class="font-medium">{{ rd.redeem_date_gmt }}</p>
               </vs-td>
               <vs-td>
-                <p>{{ rd.user }}</p>
+                <p>{{ rd.redeem_user }}</p>
               </vs-td>
+              <vs-td>
+                <p class="font-medium"> ???? </p>
+              </vs-td>
+              <vs-td>
+                <p class="font-medium"> ???? </p>
+              </vs-td>
+              <vs-td>
+                <p class="font-medium">{{ rd.paid_date }}</p>
+              </vs-td>
+              <!--
               <vs-td>
                 <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">Redeemed</vs-chip>
               </vs-td>
               <vs-td>
                 <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">Unpaid</vs-chip>
               </vs-td>
-              <vs-td>
-                <p class="product-price font-medium">{{ rd.timestamp }}</p>
-              </vs-td>
+              -->
+              
+              <!--
               <vs-td class="whitespace-no-wrap">
               <feather-icon icon="UploadIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click="activePrompt=true" />
             </vs-td>
+            -->
 
             </vs-tr>
           </tbody>
@@ -151,7 +163,7 @@
 <script>
 import vSelect from 'vue-select'
 import DataViewSidebar from '../DataViewSidebar.vue'
-import moduleDataList from "@/store/data-list/moduleDataList.js"
+import moduleCommission from "@/store/commission/moduleCommission.js"
 
 export default {
   components: {
@@ -179,15 +191,10 @@ export default {
       }
       return 0
     },
-    redemptions()     { return this.$store.state.dataList.redemptions },
-    /*
-    products() {
-      return this.$store.state.dataList.products
-    },
-    */
+    commissions()     { return this.$store.state.commission.commissions },
     queriedItems() {
       //return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
-      return this.$refs.table ? this.$refs.table.queriedResults.length : this.redemptions.length
+      return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
     }
   },
 
@@ -236,14 +243,14 @@ export default {
     }
   },
   created() {
-    if(!moduleDataList.isRegistered) {
-      this.$store.registerModule('dataList', moduleDataList)
-      moduleDataList.isRegistered = true
+    if(!moduleCommission.isRegistered) {
+      this.$store.registerModule('commission', moduleCommission)
+      moduleCommission.isRegistered = true
     }
     //this.$store.dispatch("dataList/fetchDataListItems")
   },
   mounted() {
-    this.$store.dispatch("dataList/getRedemptions")
+    this.$store.dispatch("commission/getCommissions")
     this.isMounted = true
   }
 }
