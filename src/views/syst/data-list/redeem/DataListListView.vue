@@ -58,11 +58,11 @@
       </div>
 
       <template slot="thead">
-        <vs-th sort-key="name">ID</vs-th>
-        <vs-th sort-key="category">Item</vs-th>
-        <vs-th sort-key="popularity">Tickets Type</vs-th>
-        <vs-th sort-key="price">Redeemed Quantity</vs-th>
-        <vs-th sort-key="price">Redeemed By</vs-th>
+        <vs-th>ID</vs-th>
+        <vs-th>Item</vs-th>
+        <vs-th>Tickets Type</vs-th>
+        <vs-th>Redeemed Quantity</vs-th>
+        <vs-th>Redeemed By</vs-th>
         <vs-th>Redeemed Date</vs-th>
       </template>
 
@@ -72,11 +72,11 @@
             <vs-tr :data="rd" :key="keys" v-for="(rd, keys) in data">
 
               <vs-td>
-                <p class="product-name">{{ rd.id }}</p>
+                <p>{{ rd.id }}</p>
               </vs-td>
 
               <vs-td>
-                <p class="product-category font-medium truncate">{{ rd.name }}</p>
+                <p>{{ rd.name }}</p>
               </vs-td>
 
               <template>
@@ -91,7 +91,7 @@
                 <p>{{ rd.user }}</p>
               </vs-td>
               <vs-td>
-                <p class="product-price font-medium">{{ rd.timestamp }}</p>
+                <p>{{ rd.timestamp }}</p>
               </vs-td>
 
             </vs-tr>
@@ -148,6 +148,13 @@ export default {
       // Data Sidebar
       addNewDataSidebar: false,
       sidebarData: {},
+      fileName: "",
+      formats:["xlsx", "csv", "txt"] ,
+      cellAutoWidth: true,
+      selectedFormat: "xlsx",
+      headerTitle: ["ID", "Item", "Tickets Type", "Redeemed Quantity", "Redeemed By", "Redeemed Date"],
+      headerVal: ["order_id", "name", "meta_data", "redeemed", "user", "timestamp"],
+      activePrompt: false,
     }
   },
   computed: {
@@ -157,6 +164,7 @@ export default {
       }
       return 0
     },
+
     redemptions()     { return this.$store.state.dataList.redemptions },
     /*
     products() {
@@ -169,6 +177,37 @@ export default {
     }
   },
   methods: {
+    exportToExcel() {
+      import('@/vendor/Export2Excel').then(excel => {
+        const list = this.selected
+        const data = this.formatJson(this.headerVal, list)
+        excel.export_json_to_excel({
+          header: this.headerTitle,
+          data,
+          filename: this.fileName,
+          autoWidth: this.cellAutoWidth,
+          bookType: this.selectedFormat
+        })
+        this.clearFields()
+      })
+    },
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        // Add col name which needs to be translated
+        // if (j === 'timestamp') {
+        //   return parseTime(v[j])
+        // } else {
+        //   return v[j]
+        // }
+
+        return v[j]
+      }))
+    },
+    clearFields() {
+      this.fileName = ""
+      this.cellAutoWidth = true
+      this.selectedFormat = "xlsx"
+    },
     addNewData() {
       this.sidebarData = {}
       this.toggleDataSidebar(true)
