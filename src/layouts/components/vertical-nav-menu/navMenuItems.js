@@ -61,7 +61,7 @@ export default [
           tagColor: "primary",
           icon: "DollarSignIcon",
           i18n: "PAYOUTS",
-          permissionName: [ 'get_permissions', 'read_product', 'manage_product' ]
+          permissionName: [ 'get_permissions', 'read_product' ]
         },
         {
           url: '/syst/data-list/redeem',
