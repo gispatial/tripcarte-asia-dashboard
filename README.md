@@ -5,7 +5,7 @@
  <img src="https://github.com/gispatial/tripcarte-asia-JWT/blob/master/tdmp-final.png" width="100%">
  <p>
  </p>
- <img src="https://github.com/gispatial/tripcarte-asia-JWT/blob/master/payout-redemptions.png width="100%">
+ <img src="https://github.com/gispatial/tripcarte-asia-JWT/blob/master/payout-redemptions.png" width="100%">
  New Datasets Table Updated with Export to Xlsx Features.
  
 ## TDPM-API
