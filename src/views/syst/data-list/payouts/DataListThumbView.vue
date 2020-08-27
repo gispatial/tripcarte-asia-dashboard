@@ -65,7 +65,7 @@
         <vs-th>Redeemed Date</vs-th>
         <vs-th>Redeemed By</vs-th>
         <vs-th>Redemption Status</vs-th>
-        <vs-th>Payment Status</vs-th>
+        <vs-th sort-key="commission_status">Payment Status</vs-th>
         <vs-th>Payment Date</vs-th>
       </template>
 
@@ -87,13 +87,16 @@
               <template>
               <vs-td>
                 <p>RM {{ rd.product_amount }}</p>
+                  <p>&nbsp;</p>
               </vs-td>
               </template>
               <vs-td>
                 <p>{{ rd.product_quantity }}</p>
+                  <p>&nbsp;</p>
               </vs-td>
               <vs-td>
                 <p>{{ rd.redeem_qty }}</p>
+                  <p>&nbsp;</p>
               </vs-td>
               <vs-td>
                 <p class="font-medium">{{ rd.redeem_date_gmt }}</p>
@@ -102,22 +105,16 @@
                 <p>{{ rd.redeem_user }}</p>
               </vs-td>
               <vs-td>
-                <p class="font-medium"><vs-chip :color="getOrderStatusColor(rd.commission_status)" class="product-commission_status"> {{ rd.commission_status }} </vs-chip></p>
+              <p class="font-small">RM {{ rd.redeem_qty*rd.product_amount | Redeemed }}</p>
+              <p class="font-medium"><vs-chip :color="getOrderStatusColor(rd.order_status)" class="product-order_status" data="myData" isActive="myIsActive"> Redeemed </vs-chip></p>
               </vs-td>
               <vs-td>
-                <p class="font-medium"><vs-chip :color="getOrderStatusColor(rd.commission_status)" class="product-commission_status"> Redeemed </vs-chip></p>
+                <p>&nbsp;</p>
+              <vs-chip :color="getOrderStatusColor(rd.order_status)" class="product-order-status">{{ rd.commission_status | title }}</vs-chip>
               </vs-td>
               <vs-td>
-                <p class="font-medium">{{ rd.paid_date }}</p>
+                <p>{{ rd.paid_date }}</p>
               </vs-td>
-              <!--
-              <vs-td>
-                <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">Redeemed</vs-chip>
-              </vs-td>
-              <vs-td>
-                <vs-chip :color="getOrderStatusColor(rd.product_amount)" class="product-order-status">Unpaid</vs-chip>
-              </vs-td>
-              -->
 
               <!--
               <vs-td class="whitespace-no-wrap">
@@ -174,7 +171,7 @@ export default {
     return {
       selected: [],
       //redemptions: [],
-      // products: [],
+      products: [],
       itemsPerPage: 5,
       isMounted: false,
       // Data Sidebar
@@ -243,14 +240,14 @@ export default {
       this.$store.dispatch("dataList/removeItem", id).catch(err => { console.error(err) })
     },
     editData(data) {
-      // this.sidebarData = JSON.parse(JSON.stringify(this.blankData))
+      this.sidebarData = JSON.parse(JSON.stringify(this.blankData))
       this.sidebarData = data
       this.toggleDataSidebar(true)
     },
     getOrderStatusColor(status) {
-      if(status == 'on_hold') return "warning"
-      if(status == 'completed') return "success"
-      if(status == 'canceled') return "danger"
+      if(status == 'Unpaid') return "warning"
+      if(status == 'Redeemed') return "success"
+      if(status == 'Unpaid') return "danger"
       return "primary"
     },
     getPopularityColor(num) {
