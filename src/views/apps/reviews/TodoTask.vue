@@ -3,7 +3,7 @@
     Description: Single todo item component
     ----------------------------------------------------------------------------------------
     Item Name: Tripcarte.Asia Dashboard Management Portal
-    Developer: Netquest's TripcarteDev Team
+    Developer: Netquest's TripcarteDev Team Malaysia.
     GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
 
