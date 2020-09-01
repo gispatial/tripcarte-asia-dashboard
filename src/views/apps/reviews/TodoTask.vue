@@ -21,11 +21,6 @@
                     5<feather-icon icon="StarIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
                     <h5 class="todo-title">{{ review.product_name }}</h5></vs-chip>
                   <div>
-                    <vs-chip>
-                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
-                      Family ...
-                    </feather-icon>
-                    </vs-chip>
                   </div>
 
                     <!--<div v-for="(image, imageIndex) in review.files" :key="imageIndex" class="img-container w-32 mx-auto my-base">-->
@@ -50,6 +45,12 @@
                         <span>{{ review.timing }}</span>
                   </vs-chip>
                 </div>
+                <div>
+                <vs-chip>
+                <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+                  Family ...
+                </feather-icon>
+                </vs-chip>
             </div>
             <!--
             <div class="vx-col w-full sm:w-1/6 ml-auto flex sm:justify-end">
@@ -81,39 +82,40 @@
         </div>
         -->
         <div class="vx-row">
-            <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 mb-base">
+            <div class="vx-col w-full mb-base">
                 <p class="mt-2 truncate">{{ review.extra }}</p>
             </div>
-            <div>
-                <div class="vx-col w-full sm:w-1/4 md:w-1/4 lg:w-1/4 xl:w-1/4 mb-base">
-            <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl" class="related-product-swiper px-12 py-6">
-              <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
-                <!-- Item Image -->
-                <div class="img-container w-48 mx-auto my-base">
-                  <span><img class="responsive" :src="item" :alt="item"></span>
-                </div>
-              </swiper-slide>
-            </swiper>
-            </div>
-            </div>
+            <div class="carousel-example">
+        <!-- swiper -->
+  <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl">
+          <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
+              <img class="responsive w-48" :src="item" :alt="item" alt="banner">
+            </swiper-slide>
+
+            <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+      </div>
+    </div>
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script>
+import axios from '../../../axios'
+import 'swiper/dist/css/swiper.min.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import StarRating from 'vue-star-rating'
 
-export default {
-  components: {
-    StarRating
-  }
-}
-</script>
-
-<script>
-import axios from '../../../axios'
 export default{
+
+  components: {
+        swiper,
+        swiperSlide,
+        StarRating
+    },
     props: ["review"],
     /*
     {
@@ -126,7 +128,30 @@ export default{
     data() {
         return {
           //review: post,
-          taskLocal: this.$store.getters["reviews/getTask"](this.taskId)
+          taskLocal: this.$store.getters["reviews/getTask"](this.taskId),
+          swiperOption: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+                // init: false,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    }
+                }
+            }
         }
     },
     computed: {
