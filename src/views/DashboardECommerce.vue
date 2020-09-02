@@ -27,8 +27,14 @@
         <div class="vx-row">
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
             <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/apps/reviews/all">Details</vs-button>
-                <statistics-card-line icon="FeatherIcon" statisticTitle="Total Reviews Collected - 1.4k"></statistics-card-line>
-            </div>
+            <statistics-card-line
+              v-if="subscribersGained.analyticsData"
+              icon="UsersIcon"
+              :statistic="subscribersGained.analyticsData.subscribers | k_formatter"
+              statisticTitle="Subscribers Gained"
+              :chartData="subscribersGained.series"
+              type="area" />
+        </div>
 
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
             <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/syst/ag-grid-table">Details</vs-button>
@@ -81,7 +87,9 @@ export default {
     data() {
         return {
             checkpointReward: {},
-            subscribersGained: {},
+      subscribersGained: {
+          taskLocal: this.$store.getters["reviews/getTask"](this.taskId),
+      },
             ordersRecevied: {},
             salesBarSession: {},
             supportTracker: {},
@@ -144,9 +152,9 @@ export default {
         .catch((error)   => { console.log(error) })
 
       // Subscribers gained - Statistics
-      this.$http.get("/api/card/card-statistics/subscribers")
-        .then((response) => { this.subscribersGained = response.data })
-        .catch((error)   => { console.log(error) })
+      this.$http.get('reviews/getReviews')
+      .then((response) => { this.subscribersGained = response.data })
+      .catch((error) => { console.log(error) })
 
       // Orders - Statistics
       this.$http.get("/api/card/card-statistics/orders")

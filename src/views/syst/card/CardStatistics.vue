@@ -14,9 +14,12 @@
             </div>
 
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
-                <statistics-card-line icon="ShoppingBagIcon" statistic="14k" statisticTitle="Total Redemption this year"></statistics-card-line>
+                <img src="@/assets/images/elements/divider.png" height="36" >
+                <statistics-card-line icon="ShoppingBagIcon" statistic="14k" statisticTitle="Total Redemption this year">
+                </statistics-card-line>
             </div>
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
+                <img src="@/assets/images/elements/divider.png" height="36" >
                 <statistics-card-line icon="DollarSignIcon" statistic="RM 2300" statisticTitle="Total Pending Payout"></statistics-card-line>
             </div>
         </div>

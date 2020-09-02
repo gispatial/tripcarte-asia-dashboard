@@ -11,15 +11,43 @@
 <template>
     <div @click="displayPrompt" class="px-4 py-4 list-item-component">
         <div class="vx-row">
+          <h5 class="todo-title">{{ review.product_name }}</h5>
             <div class="vx-col w-full sm:w-5/6 flex sm:items-center sm:flex-row flex-col">
+              <div>
+              <vs-chip>&nbsp;&nbsp;&nbsp;&nbsp;
+              <feather-icon icon="StarIcon"></feather-icon>
+              <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
+                <span>{{ review.rating }}</span>
+              </feather-icon>
+              </vs-chip>
+          </div>
+
+              <div class="todo-tags sm:ml-2 sm:my-0 my-2 flex">
+                <!--
+                  <vs-chip v-for="(tag, index) in taskLocal.tags" :key="index">
+                      <div class="h-2 w-2 rounded-full mr-1" :class="'bg-' + todoLabelColor(tag)"></div>
+                      <span>{{ review.files }}</span>
+                  </vs-chip>
+                -->
+                <vs-chip>
+                  <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
+                      <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
+                      <span>{{ review.timing }}</span>
+                </vs-chip>
+              </div>
+              <div>
+              <vs-chip>
+              <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
+              <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
+              <span>{{ review.suited }}</span>
+              </feather-icon>
+              </vs-chip>
+          </div>
                 <div class="flex items-center">
                   <!--
                     <vs-checkbox v-model="isCompleted" class="w-8 m-0 vs-checkbox-small" @click.stop />
                     <h6 class="todo-title" :class="{'line-through': taskLocal.isCompleted}">{{ review.title }}</h6>
                   -->
-                  <vs-chip>
-                    5<feather-icon icon="StarIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <h5 class="todo-title">{{ review.product_name }}</h5></vs-chip>
                   <div>
                   </div>
 
@@ -32,26 +60,6 @@
 
                 </div>
 
-                <div class="todo-tags sm:ml-2 sm:my-0 my-2 flex">
-                  <!--
-                    <vs-chip v-for="(tag, index) in taskLocal.tags" :key="index">
-                        <div class="h-2 w-2 rounded-full mr-1" :class="'bg-' + todoLabelColor(tag)"></div>
-                        <span>{{ review.files }}</span>
-                    </vs-chip>
-                  -->
-                  <vs-chip>
-                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;
-                        <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
-                        <span>{{ review.timing }}</span>
-                  </vs-chip>
-                </div>
-                <div>
-                <vs-chip>
-                <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>&nbsp;&nbsp;&nbsp;&nbsp;
-                  Family ...
-                </feather-icon>
-                </vs-chip>
-            </div>
             <!--
             <div class="vx-col w-full sm:w-1/6 ml-auto flex sm:justify-end">
                 <feather-icon
@@ -81,10 +89,12 @@
             </div>
         </div>
         -->
+        <div>
         <div class="vx-row">
-            <div class="vx-col w-full mb-base">
+            <div class="vx-col w-full flex sm:items-center sm:flex-row flex-col">
                 <p class="mt-2 truncate">{{ review.extra }}</p>
             </div>
+          </div>
             <div class="carousel-example">
         <!-- swiper -->
   <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl">
@@ -128,7 +138,7 @@ export default{
     data() {
         return {
           //review: post,
-          taskLocal: this.$store.getters["reviews/getTask"](this.taskId),
+          taskLocal: this.$http.get["reviews/getTask"](this.taskId),
           swiperOption: {
                 slidesPerView: 5,
                 spaceBetween: 50,

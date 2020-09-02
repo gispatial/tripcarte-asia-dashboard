@@ -276,8 +276,8 @@ export default {
     // LINE AREA CHART
     subscribersGained: {
         series: [{
-            name: 'Subscribers',
-            data: [28, 40, 36, 52, 38, 60, 55]
+            name: 'Reviewers',
+            data: [48, 40, 36, 52, 38, 60, 55]
         }],
         chartOptions: {
             grid: {
