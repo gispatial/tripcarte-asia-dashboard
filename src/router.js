@@ -20,8 +20,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import auth from "@/auth/authService";
-
-import firebase from 'firebase/app'
 //import 'firebase/auth'
 
 Vue.use(Router)
@@ -35,15 +33,15 @@ const router = new Router({
     routes: [
 
         {
-    // =============================================================================
-    // MAIN LAYOUT ROUTES
-    // =============================================================================
+            // =============================================================================
+            // MAIN LAYOUT ROUTES
+            // =============================================================================
             path: '',
             component: () => import('./layouts/main/Main.vue'),
             children: [
-        // =============================================================================
-        // Theme Routes
-        // =============================================================================
+                // =============================================================================
+                // Theme Routes
+                // =============================================================================
                 {
                     path: '/',
                     redirect: '/dashboard/home'
@@ -66,9 +64,9 @@ const router = new Router({
                 },
 
 
-        // =============================================================================
-        // Application Routes
-        // =============================================================================
+                // =============================================================================
+                // Application Routes
+                // =============================================================================
                 {
                     path: '/apps/todo',
                     redirect: '/apps/reviews/all',
@@ -232,9 +230,9 @@ const router = new Router({
                         rule: 'admin'
                     },
                 },
-        // =============================================================================
-        // UI ELEMENTS
-        // =============================================================================
+                // =============================================================================
+                // UI ELEMENTS
+                // =============================================================================
                 {
                     path: '/syst/data-list/redeem',
                     name: 'data-list-redeem',
@@ -401,9 +399,9 @@ const router = new Router({
                     },
                 },
 
-        // =============================================================================
-        // COMPONENT ROUTES
-        // =============================================================================
+                // =============================================================================
+                // COMPONENT ROUTES
+                // =============================================================================
                 {
                     path: '/components/alert',
                     name: 'component-alert',
@@ -714,12 +712,12 @@ const router = new Router({
                 },
 
 
-        // =============================================================================
-        // FORMS
-        // =============================================================================
-            // =============================================================================
-            // FORM ELEMENTS
-            // =============================================================================
+                // =============================================================================
+                // FORMS
+                // =============================================================================
+                // =============================================================================
+                // FORM ELEMENTS
+                // =============================================================================
                 {
                     path: '/forms/form-elements/select',
                     name: 'form-element-select',
@@ -818,7 +816,7 @@ const router = new Router({
                         rule: 'admin'
                     },
                 },
-        // -------------------------------------------------------------------------------------------------------------------------------------------
+                // -------------------------------------------------------------------------------------------------------------------------------------------
                 {
                     path: '/forms/form-layouts',
                     name: 'forms-form-layouts',
@@ -862,23 +860,23 @@ const router = new Router({
                     },
                 },
                 {
-                  path: '/forms/form-input-group',
-                  name: 'extra-component-form-input-group',
-                  component: () => import('@/views/forms/form-input-group/FormInputGroup.vue'),
-                  meta: {
-                      breadcrumb: [
-                          { title: 'Home', url: '/' },
-                          { title: 'Extra Components' },
-                          { title: 'Form Input Group', active: true },
-                      ],
-                      pageTitle: 'Form Input Group',
-                      rule: 'admin'
-                  },
+                    path: '/forms/form-input-group',
+                    name: 'extra-component-form-input-group',
+                    component: () => import('@/views/forms/form-input-group/FormInputGroup.vue'),
+                    meta: {
+                        breadcrumb: [
+                            { title: 'Home', url: '/' },
+                            { title: 'Extra Components' },
+                            { title: 'Form Input Group', active: true },
+                        ],
+                        pageTitle: 'Form Input Group',
+                        rule: 'admin'
+                    },
                 },
 
-        // =============================================================================
-        // Pages Routes
-        // =============================================================================
+                // =============================================================================
+                // Pages Routes
+                // =============================================================================
                 {
                     path: '/pages/profile',
                     name: 'page-profile',
@@ -995,9 +993,9 @@ const router = new Router({
                     },
                 },
 
-        // =============================================================================
-        // CHARTS & MAPS
-        // =============================================================================
+                // =============================================================================
+                // CHARTS & MAPS
+                // =============================================================================
                 {
                     path: '/charts-and-maps/charts/apex-charts',
                     name: 'extra-component-charts-apex-charts',
@@ -1057,9 +1055,9 @@ const router = new Router({
 
 
 
-        // =============================================================================
-        // EXTENSIONS
-        // =============================================================================
+                // =============================================================================
+                // EXTENSIONS
+                // =============================================================================
                 {
                     path: '/extensions/select',
                     name: 'extra-component-select',
@@ -1289,16 +1287,16 @@ const router = new Router({
                 },
             ],
         },
-    // =============================================================================
-    // FULL PAGE LAYOUTS
-    // =============================================================================
+        // =============================================================================
+        // FULL PAGE LAYOUTS
+        // =============================================================================
         {
             path: '',
             component: () => import('@/layouts/full-page/FullPage.vue'),
             children: [
-        // =============================================================================
-        // PAGES
-        // =============================================================================
+                // =============================================================================
+                // PAGES
+                // =============================================================================
                 {
                     path: '/callback',
                     name: 'auth-callback',
@@ -1398,18 +1396,18 @@ const router = new Router({
 })
 
 router.afterEach(() => {
-  // Remove initial loading
-  const appLoading = document.getElementById('loading-bg')
+    // Remove initial loading
+    const appLoading = document.getElementById('loading-bg')
     if (appLoading) {
         appLoading.style.display = "none";
     }
 })
 
 router.beforeEach((to, from, next) => {
-    firebase.auth().onAuthStateChanged(() => {
+    //firebase.auth().onAuthStateChanged(() => {
 
         // get firebase current user
-        const firebaseCurrentUser = firebase.auth().currentUser
+        //const firebaseCurrentUser = firebase.auth().currentUser
 
         // if (
         //     to.path === "/pages/login" ||
@@ -1426,9 +1424,9 @@ router.beforeEach((to, from, next) => {
 
         // If auth required, check login. If login fails redirect to login page
         if(to.meta.authRequired) {
-          if (!(auth.isAuthenticated() || firebaseCurrentUser)) {
-            router.push({ path: '/pages/login', query: { to: to.path } })
-          }
+            if (!(auth.isAuthenticated() || firebaseCurrentUser)) {
+                router.push({ path: '/pages/login', query: { to: to.path } })
+            }
         }
 
         return next()
@@ -1438,6 +1436,5 @@ router.beforeEach((to, from, next) => {
 
     });
 
-});
 
 export default router
