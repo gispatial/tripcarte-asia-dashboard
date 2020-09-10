@@ -2,9 +2,9 @@
     File Name: ItemListView.vue
     Description: Item Component - List VIew
     ----------------------------------------------------------------------------------------
-    Item Name: Tripcarte.Asia Dashboard Management Portal
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
+  	Item Name: Tripcarte.Asia Dashboard Management Portal
+  	Developer: TripcartDev
+  	Github URL: https://github.com/gispatial/tripcarte-asia-dashboard
 ========================================================================================== -->
 
 <template>

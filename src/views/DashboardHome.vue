@@ -38,7 +38,7 @@
 
     <!-- CARD 2: SUBSCRIBERS GAINED -->
     <div class="vx-col w-full lg:w-1/2 mb-base">
-            <statistics-card-line icon="DollarSignIcon" statisticTitle="[ TOTAL PENDING PAYOUTS ] - You must sign-in or click dashboard for review"></statistics-card-line>
+            <statistics-card-line icon="DollarSignIcon" statisticTitle="TOTAL PENDING PAYOUTS : (You must sign-in or click dashboard for review!)"></statistics-card-line>
             </div>
 
     <!-- CARD 3: ORDER RECEIVED -->

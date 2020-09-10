@@ -2,9 +2,9 @@
   File Name: DashboardAnalytics.vue
   Description: Dashboard Analytics
   ----------------------------------------------------------------------------------------
-	Item Name: TDMP - NETQUEST SOLUTIONS SB
-	Author: TripcarteDev
-	Author URL: http://tripcarte.gispatial.now.sh/
+	Item Name: Tripcarte.Asia Dashboard Management Portal
+	Developer: TripcartDev
+	Github URL: https://github.com/gispatial/tripcarte-asia-dashboard
 ========================================================================================== -->
 
 <template>

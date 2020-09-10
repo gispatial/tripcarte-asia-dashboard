@@ -3,8 +3,8 @@
 	Description: Item Component - Grid VIew
 	----------------------------------------------------------------------------------------
 	Item Name: Tripcarte.Asia Dashboard Management Portal
-	Author: Pixinvent
-	Author URL: http://www.themeforest.net/user/pixinvent
+	Developer: TripcartDev
+	Github URL: https://github.com/gispatial/tripcarte-asia-dashboard
 ========================================================================================== -->
 
 <template>
