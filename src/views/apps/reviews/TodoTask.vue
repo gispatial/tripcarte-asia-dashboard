@@ -10,39 +10,44 @@
 
 <template>
     <div @click="displayPrompt" class="px-4 py-4 list-item-component">
-        <div class="vx-row">
+      <div class="vx-row">
+      <!-- CARD 1: CONGRATS -->
+      <div class="vx-col w-full">
+        <vx-card
+    title=""
+    title-color="primary"
+    content-color="warning"
+    subtitle="">
+    <p class="mb-3">
           <h5 class="todo-title">{{ review.product_name }}</h5>
-            <div class="vx-col w-full sm:w-5/6 flex sm:items-center sm:flex-row flex-col">
-              <div>
-              <vs-chip>&nbsp;&nbsp;&nbsp;&nbsp;
-              <feather-icon icon="StarIcon"></feather-icon>
-              <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
-                <span>{{ review.rating }}</span>
-              </feather-icon>
-              </vs-chip>
-          </div>
 
-              <div class="todo-tags sm:ml-2 sm:my-0 my-2 flex">
-                <!--
-                  <vs-chip v-for="(tag, index) in taskLocal.tags" :key="index">
-                      <div class="h-2 w-2 rounded-full mr-1" :class="'bg-' + todoLabelColor(tag)"></div>
-                      <span>{{ review.files }}</span>
-                  </vs-chip>
-                -->
-                <vs-chip>
-                  <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
-                      <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
-                      <span>{{ review.timing }}</span>
+              <div class="vx-col w-full sm:w-5/6 flex sm:items-center sm:flex-row flex-col">
+                <div>
+                <vs-chip>&nbsp;&nbsp;&nbsp;&nbsp;
+                <feather-icon icon="StarIcon"></feather-icon>
+                <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
+                  <span>{{ review.rating }}</span>
+                </feather-icon>
                 </vs-chip>
-              </div>
-              <div>
-              <vs-chip>
-              <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
-              <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
-              <span>{{ review.suited }}</span>
-              </feather-icon>
-              </vs-chip>
-          </div>
+            </div>
+            <div class="todo-tags sm:ml-2 sm:my-0 my-2 flex">
+                  <vs-chip>
+                    <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
+                        <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
+                        <span>{{ review.timing }}</span>
+                  </vs-chip>
+                </div>
+                <div>
+                <vs-chip>
+                <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
+                <div class="h-2 w-2 rounded-full mr-1" :class="'bg-success'"></div>
+                <span>{{ review.suited }}</span>
+                </feather-icon>
+                </vs-chip>
+            </div>
+            </div>
+            <p class="mt-2 truncate">{{ review.extra }}</p>
+        </vx-card>
                 <div class="flex items-center">
                   <!--
                     <vs-checkbox v-model="isCompleted" class="w-8 m-0 vs-checkbox-small" @click.stop />
@@ -89,21 +94,27 @@
             </div>
         </div>
         -->
-        <div>
         <div class="vx-row">
-            <div class="vx-col w-full flex sm:items-center sm:flex-row flex-col">
-                <p class="mt-2 truncate">{{ review.extra }}</p>
-            </div>
-          </div>
             <div class="carousel-example">
         <!-- swiper -->
-  <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl">
-          <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
-              <img class="responsive w-48" :src="item" :alt="item" alt="banner">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <vx-card
+    title=""
+    title-color="primary"
+    content-color="warning"
+    subtitle="">
+</vx-card>
+        <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl">
+
+                <div class="vx-col w-full flex sm:items-center sm:flex-row flex-col">
+                </div>
+    <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
+              <img class="responsive w-28" :src="item" :alt="item" alt="banner">
             </swiper-slide>
 
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
+        </vx-card>
       </div>
     </div>
             </div>
@@ -115,7 +126,7 @@
 
 <script>
 import axios from '../../../axios'
-import 'swiper/dist/css/swiper.min.css'
+//import 'swiper/dist/css/swiper.min.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import StarRating from 'vue-star-rating'
 
@@ -157,9 +168,10 @@ export default{
                         spaceBetween: 30
                     },
                     640: {
-                        slidesPerView: 1,
-                        spaceBetween: 20
-                    }
+                        slidesPerView: 4,
+                        spaceBetween: 15
+                    },
+                      card_bg_img_2: require('@/assets/images/pages/card-bg-image-demo-2.jpg')
                 }
             }
         }

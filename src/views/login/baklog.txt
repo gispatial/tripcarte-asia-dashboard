@@ -1,0 +1,132 @@
+
+{
+  url: null,
+  name: "Dashboard",
+  tag: "8",
+  tagColor: "warning",
+  icon: "LayoutIcon",
+  i18n: "Dashboard",
+  submenu: [
+    {
+      url: null,
+      name: "Analytics",
+      slug: "dashboard-analytics",
+      i18n: "Analytics",
+      icon: "ListIcon",
+    },
+    {
+        url: '/syst/ag-grid-table',
+        name: "Payouts",
+        slug: "dashboard-analytics",
+        i18n: "PAYOUTS",
+        icon: "ListIcon",
+      },
+    {
+        url: '/forms/form-elements/checkbox',
+        name: "REDEMPTIONS",
+        slug: "dashboard-analytics",
+        i18n: "REDEMPTIONS",
+        icon: "ListIcon",
+      },
+    {
+        url: '/apps/eCommerce/shop',
+        name: "PRODUCTS",
+        slug: "dashboard-analytics",
+        i18n: "PRODUCTS",
+        icon: "ListIcon",
+      },
+    {
+        url: '/apps/reviews/all',
+        name: "REVIEWS",
+        slug: "dashboard-analytics",
+        i18n: "REVIEWS",
+        icon: "ListIcon",
+      },
+    {
+        url: '/extensions/drag-and-drop',
+        name: "SCAN TICKETS",
+        slug: "dashboard-analytics",
+        i18n: "SCAN TICKETS",
+        icon: "ListIcon",
+      },
+    {
+        url: '/forms/form-elements/input',
+        name: "BOOKINGS",
+        slug: "dashboard-analytics",
+        i18n: "BOOKING",
+        icon: "ListIcon",
+      },
+    {
+        url: '/extensions/i18n',
+        name: "SETTINGS",
+        slug: "dashboard-analytics",
+        i18n: "SETTINGS",
+        icon: "ListIcon",
+      },
+      {
+            url: '/forms/form-elements/input',
+            name: "TRAVEL AGENT ADM",
+            slug: "dashboard-analytics",
+            i18n: "DASHBOARD",
+            icon: "LayoutIcon",
+            submenu: [
+        {
+          url: '/forms/form-elements/checkbox',
+          name: "Redemptions",
+          slug: "dashboard-ecommerce",
+          i18n: "Redemptions",
+        },
+         {
+           url: "/apps/eCommerce/wish-list",
+           name: "Products",
+           slug: "ag-grid-table",
+           icon: "CartIcon",
+           i18n: "Products",
+         },
+            {
+              url: "/apps/todo",
+              name: "Todo",
+              slug: "todo",
+              icon: "CheckSquareIcon",
+              i18n: "Todo",
+            },
+            {
+              url: "/extensions/drag-and-drop",
+              name: "Scan Tickets",
+              slug: "chat",
+              icon: "MessageSquareIcon",
+              i18n: "Scan Tickets",
+            },
+            {
+              url: "/forms/form-elements/input",
+              name: "Bookings",
+              slug: "chat",
+              icon: "MessageSquareIcon",
+              i18n: "Bookings",
+            },
+        {
+          url: null,
+          name: "Support",
+          icon: "SmileIcon",
+          i18n: "Support",
+          submenu: [
+            {
+              url: 'https://tripcarte.asia/terms-conditions/',
+              name: "Terms & Conditions",
+              icon: "BookOpenIcon",
+              slug: "external",
+              i18n: "Terms & Conditions",
+              target: "_blank"
+            },
+            {
+              url: 'https://tripcarte.asia/privacy-policy/',
+              name: "Privacy Policy",
+              icon: "LifeBuoyIcon",
+              slug: "external",
+              i18n: "Privacy Policy",
+              target: "_blank"
+            },
+            ]
+          },
+      ]
+    },

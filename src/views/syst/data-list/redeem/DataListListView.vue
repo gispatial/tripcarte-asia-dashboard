@@ -58,7 +58,7 @@
       </div>
 
       <template slot="thead">
-        <vs-th>ID</vs-th>
+        <vs-th>Order ID</vs-th>
         <vs-th>Item</vs-th>
         <vs-th>Tickets Type</vs-th>
         <vs-th>Redeemed Quantity</vs-th>
@@ -72,7 +72,7 @@
             <vs-tr :data="rd" :key="keys" v-for="(rd, keys) in data">
 
               <vs-td>
-                <p>{{ rd.id }}</p>
+                <p>{{ rd.order_id }}</p>
               </vs-td>
 
               <vs-td>

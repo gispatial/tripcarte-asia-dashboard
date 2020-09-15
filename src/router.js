@@ -1,7 +1,7 @@
 /*=========================================================================================
   File Name: router.js
   Description: Routes for vue-router. Lazy loading is enabled.
-  Object Strucutre:
+  Object Structure:
                     path => router path
                     name => router name
                     component(lazy loading) => component to load
@@ -49,15 +49,15 @@ const router = new Router({
                 {
                     path: '/dashboard/home',
                     name: 'dashboard-home',
-                    component: () => import('./views/DashboardHome.vue'),
+                    component: () => import('./views/Home.vue'),
                     meta: {
-                        rule: 'admin',
+                        rule: 'editor',
                     }
                 },
                 {
                     path: '/dashboard/home',
                     name: 'dashboard-home',
-                    component: () => import('./views/DashboardHome.vue'),
+                    component: () => import('./views/ECommerceItemDetailView.vue'),
                     meta: {
                         rule: 'admin'
                     }
@@ -69,7 +69,7 @@ const router = new Router({
                 // =============================================================================
                 {
                     path: '/apps/todo',
-                    redirect: '/apps/reviews/all',
+                    redirect: '/apps/todo/all',
                     name: 'todo',
                     meta: {
                         rule: 'admin',
@@ -1424,7 +1424,7 @@ router.beforeEach((to, from, next) => {
 
         // If auth required, check login. If login fails redirect to login page
         if(to.meta.authRequired) {
-            if (!(auth.isAuthenticated() || firebaseCurrentUser)) {
+            if (!(jwt.isAuthenticated() || firebaseCurrentUser)) {
                 router.push({ path: '/pages/login', query: { to: to.path } })
             }
         }

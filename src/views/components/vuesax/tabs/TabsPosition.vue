@@ -9,23 +9,15 @@
 
 <template>
   <vs-tabs>
-    <vs-tab label="SCAN QR/ BARCODE" icon-pack="feather" icon="icon-camera">
+    <vs-tab label="SCAN QR/ WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
       <div class="demo-alignment">
       <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
-      <vs-popup background-color="rgba(0, 0, 0, 0.74)" :background-color-popup="colorx" class="holamundo" title="" :active.sync="popupActive">
+      <vs-popup fullscreen title="SCAN QR | WEB REDEMPTION" :active.sync="popupActive">
         <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
-        <vx-card>
-        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">SCANS RESULTS</div>
-        <h6>Order details :</h6>
-        <div v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></div>
-         <h6>Name :</h6>
-         <div v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></div>
 
-           <p class="decode-result"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Last result:</div><b>{{ result }}</b></p>
-         <h6>Redeem Details:</h6>
-         <div v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></div>
-         </vx-card>
          <qrcode-stream @decode="onDecode" @init="onInit" />
+           <div></div>
+           <div align="center"><h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
       </vs-popup>
   </div>
     <div>
@@ -48,11 +40,52 @@
       <!-- /Append Button -->
     </div>
       <vx-card>
-      <h6>Order details :</h6> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-       <h6>Name :</h6> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+      <h6>ORDER DETAILS :</h6> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li><br>
+       <h6>NAME :</h6> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+
        </vx-card>
        <vx-card>
-        <h6>Redeem Details :</h6> <li v-for="post in posts" v-text="post.order_items" v-bind:key="post.order_id"></li>
+         <h6>REDEMPTION STATUS:</h6>
+         <template slot="thead">
+           <vs-td>ITEM</vs-td>
+           <vs-td>PURCHASED</vs-td>
+           <vs-td>REDEEM</vs-td>
+         </template>
+
+         <template slot-scope="{data}">
+         <h5>REDEMPTION DETAILS:</h5>
+
+<table>
+  <p>
+  <tr>
+    <th>Item</th>
+    <th>Purchased</th>
+    <th>Remaining</th>
+    <th>Redeem</th>
+  </tr>
+  <tr>
+    <td><h7>Person Type:</h7> <li v-for="post in posts" v-text="Adult" v-bind:key="post.order_id"></li></td>
+    <td><h7>3</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+    <td><h7>0</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+    <td><h7>0</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+</td>
+  </tr>
+  <tr>
+    <td><h7>Ticket Type: </h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li></td>
+    <td><h7>1</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+      <td><h7>0</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+        <td><h7>Redeem</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+</td>
+  </tr>
+</table>
+    </vs-td>
+             </vs-td>
+             <div class="flex bg-white p-6 chat-input-container" align="right">
+                 <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch">Redeem</vs-button>
+             </div>
+           </tbody>
+         </template>
+         <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
         </vx-card>
     </ul>
     </div>
@@ -80,6 +113,19 @@ export default {
       error: ''
     }
   },
+      computed: {
+        currentPage() {
+          if(this.isMounted) {
+            return this.$refs.table.currentx
+          }
+          return 0
+        },
+        queriedItems() {
+          //return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
+          return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
+        }
+      },
+
   methods: {
     barcodesearch() {
       axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: this.barcode },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
@@ -110,14 +156,72 @@ export default {
           this.error = "ERROR: Stream API is not supported in this browser"
         }
       }
-    }
+    },
+
+  commissions()
+  { return this.$store.state.commission.commissions },
+  queriedItems() {
+    //return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
+    return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
   }
+},
+
+formatJson(filterVal, jsonData) {
+  return jsonData.map(v => filterVal.map(j => {
+    // Add col name which needs to be translated
+    // if (j === 'timestamp') {
+    //   return parseTime(v[j])
+    // } else {
+    //   return v[j]
+    // }
+
+    return v[j]
+  }))
+},
+
+clearFields() {
+  this.fileName = ""
+  this.cellAutoWidth = true
+  this.selectedFormat = "xlsx"
+},
+addNewData() {
+  this.sidebarData = {}
+  this.toggleDataSidebar(true)
+},
+deleteData(id) {
+  this.$store.dispatch("dataList/removeItem", id).catch(err => { console.error(err) })
+},
+editData(data) {
+  this.sidebarData = JSON.parse(JSON.stringify(this.blankData))
+  this.sidebarData = data
+  this.toggleDataSidebar(true)
+},
+getOrderStatusColor(status) {
+  if(status == 'Unpaid') return "warning"
+  if(status == 'Redeemed') return "success"
+  if(status == 'Unpaid') return "danger"
+  return "primary"
+},
+created() {
+if(!moduleCommission.isRegistered) {
+  this.$store.registerModule('commission', moduleCommission)
+  moduleCommission.isRegistered = true
+}
+//this.$store.dispatch("dataList/fetchDataListItems")
+},
 }
 </script>
 
-<style scoped>
-.error {
-  font-weight: bold;
-  color: red;
+<style lang="scss">
+table {
+  border-spacing: 0;
+}
+
+td {
+  padding: 2px 5px;
+}
+
+.jsonOdd {
+  background: #eee;
 }
 </style>

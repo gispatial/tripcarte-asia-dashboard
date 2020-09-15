@@ -28,16 +28,15 @@
                         <vs-input icon-no-border size="large" icon-pack="feather" icon="icon-search" placeholder="Search.." v-model="searchQuery" class="vs-input-no-border vs-input-no-shdow-focus w-full" />
                     </div>
 
-                    <!-- 
+                    <!--
                     <VuePerfectScrollbar class="todo-content-scroll-area" :settings="settings" ref="taskListPS" :key="$vs.rtl">
                         <transition-group class="todo-list" name="list-enter-up" tag="ul" appear>
                             <li class="cursor-pointer todo_todo-item" v-for="(task, index) in taskList" :key="String(currFilter) + String(task.id)" :style="[{transitionDelay: (index * 0.1) + 's'}]">
-
                                 <todo-task :taskId="task.id" @showDisplayPrompt="showDisplayPrompt($event)" :key="String(task.title) + String(task.desc)" />
-                                
+
                                   Note: Remove "todo-task" component's key just concat lastUpdated field in li key list.
                                   e.g. <li class="..." v-for="..." :key="String(currFilter) + String(task.id) + String(task.lastUpdated)" .. >
-                                
+
                             </li>
                         </transition-group>
                     </VuePerfectScrollbar>
@@ -47,13 +46,13 @@
                         <transition-group class="todo-list" name="list-enter-up" tag="ul" appear>
                             <li class="cursor-pointer todo_todo-item"  v-for="(review, key) in reviews" :key="key"  :style="[{transitionDelay: (key * 0.1) + 's'}]">
                                 <todo-task :review="review" @showDisplayPrompt="showDisplayPrompt($event)" :key="String(review.product_id) + String(review.rating)" />
-                                
+
                             </li>
                         </transition-group>
                     </VuePerfectScrollbar>
                 </div>
 
-                <!-- EDIT TODO DIALOG 
+                <!-- EDIT TODO DIALOG
                 <todo-edit :displayPrompt="displayPrompt" :taskId="taskIdToEdit" @hideDisplayPrompt="hidePrompt" v-if="displayPrompt"></todo-edit>
                 -->
     </div>
@@ -67,10 +66,9 @@ import TodoFilters         from "./TodoFilters.vue"
 import TodoEdit            from "./TodoEdit.vue"
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import axios from "../../../http/axios/index.js"
-
 export default {
   data() {
-    
+
     return {
       //post: null,
       currFilter           : "",
@@ -83,20 +81,19 @@ export default {
         wheelSpeed         : 0.30,
       },
     }
-    
+
   },
   watch: {
-    
+
     todoFilter() {
       this.$refs.taskListPS.$el.scrollTop = 0
       this.toggleTodoSidebar()
-
       // Fetch Tasks
       let filter = this.$route.params.filter
       this.$store.dispatch("todo/fetchTasks", { filter: filter })
       this.$store.commit("todo/UPDATE_TODO_FILTER", filter)
     },
-    
+
     windowWidth() {
       this.setSidebarWidth()
     },
@@ -111,9 +108,9 @@ export default {
       set(val)    { this.$store.dispatch('todo/setTodoSearchQuery', val) }
     },
     windowWidth() { return this.$store.state.windowWidth }
-    
+
   },
-  
+
   methods: {
     showDisplayPrompt(itemId) {
       this.taskIdToEdit  = itemId
@@ -134,46 +131,42 @@ export default {
       this.isSidebarActive = value
     },
   },
-  
+
   components: {
     TodoTask,
     TodoFilters,
     TodoEdit,
     VuePerfectScrollbar
   },
-  
+
   created() {
     this.$store.registerModule('todo', moduleTodo)
-    
-    this.setSidebarWidth()
-    
-    let filter = this.$route.params.filter
 
+    this.setSidebarWidth()
+
+    let filter = this.$route.params.filter
     // Fetch Tasks
     this.$store.dispatch("todo/fetchTasks", { filter: filter })
     this.$store.commit("todo/UPDATE_TODO_FILTER", filter)
-
     // Fetch Tags
     this.$store.dispatch("todo/fetchTags")
 
-    
-    
+
   },
-  
+
   beforeUpdate() {
     this.currFilter = this.$route.params.filter
   },
   beforeDestroy: function() {
     this.$store.unregisterModule('todo')
   },
-  
+
   mounted() {
     this.$store.dispatch("todo/getReviews")
     this.$store.dispatch("todo/setTodoSearchQuery", "")
-    
+
   }
 }
-
 </script>
 
 

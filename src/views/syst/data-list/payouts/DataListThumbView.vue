@@ -105,7 +105,6 @@
                 <p>{{ rd.redeem_user }}</p>
               </vs-td>
               <vs-td>
-              <p class="font-small">RM {{ rd.redeem_qty*rd.product_amount | Redeemed }}</p>
               <p class="font-medium"><vs-chip :color="getOrderStatusColor(rd.order_status)" class="product-order_status" data="myData" isActive="myIsActive"> Redeemed </vs-chip></p>
               </vs-td>
               <vs-td>

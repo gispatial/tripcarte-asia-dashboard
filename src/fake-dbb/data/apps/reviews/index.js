@@ -105,17 +105,17 @@ let data = {
     },
   ],
   taskTags: [
-    { product_id: 11,text: 'Spent less than 1 hour', value: 'underwater world', color: 'danger' },
-    { product_id: 5,text: 'Spent 1 hour' ,value : 'underwater world', color: 'primary' },
-    { product_id: 7,text: 'Spent 2 hours', value: 'underwater world', color: 'warning'},
-    { product_id: 8,text: 'Spent 3 hours', value: 'underwater world', color: 'success'},
-    { product_id: 8,text: 'Spent 4 hours', value: 'underwater world', color: 'success'},
-    { product_id: 11,text: 'Spent more than 4 hours', value: 'underwater world', color: 'danger' },
-    { product_id: 11,text: 'Solo Traveler', value: 'underwater world', color: 'danger' },
-    { product_id: 5,text: 'Couple' ,value : 'underwater world', color: 'primary' },
-    { product_id: 7,text: 'Family with Children', value: 'underwater world', color: 'warning'},
-    { product_id: 8,text: 'Group of Friends', value: 'underwater world', color: 'success'},
-    { product_id: 11,text: 'Company / Corporate', value: 'underwater world', color: 'danger' },
+    { timing: 11,text: 'Spent less than 1 hour hoho', value: 'underwater world', color: 'danger' },
+    { timing: 5,text: 'Spent 1 hour' ,value : 'underwater world', color: 'primary' },
+    { timing: 7,text: 'Spent 2 hours', value: 'underwater world', color: 'warning'},
+    { timing: 8,text: 'Spent 3 hours', value: 'underwater world', color: 'success'},
+    { timing: 8,text: 'Spent 4 hours', value: 'underwater world', color: 'success'},
+    { timing: 11,text: 'Spent more than 4 hours', value: 'underwater world', color: 'danger' },
+    { timing: 11,text: 'Solo Traveler', value: 'underwater world', color: 'danger' },
+    { timing: 5,text: 'Couple' ,value : 'underwater world', color: 'primary' },
+    { timing: 7,text: 'Family with Children', value: 'underwater world', color: 'warning'},
+    { timing: 8,text: 'Group of Friends', value: 'underwater world', color: 'success'},
+    { timing: 11,text: 'Company / Corporate', value: 'underwater world', color: 'danger' },
   ]
 }
 
@@ -137,31 +137,6 @@ mock.onPost("/api/apps/reviews/tasks/").reply((request) => {
   return [201, {id: task.id}]
 })
 
-// GET: Fetch Todos
-mock.onGet("api/apps/reviews/tasks").reply((request) => {
-
-  const filter = request.params.filter
-
-  const filteredTasks = data.tasks.filter((task)=> {
-
-    // If filter == all
-    if(filter === "all") return !task.isTrashed
-
-      // If filter == starred
-    if(filter === "starred") return !task.isTrashed && task.isStarred
-
-    // If filter == important
-    if(filter === "important") return !task.isTrashed && task.isImportant
-
-    // If filter == completed
-    if(filter === "completed") return !task.isTrashed && task.isCompleted
-
-    // If filter == trashed
-    if(filter === "trashed") return task.isTrashed
-
-    else return task.tags.includes(filter)
-
-  })
 
 
   return [200, JSON.parse(JSON.stringify(filteredTasks)).reverse()]

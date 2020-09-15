@@ -99,43 +99,6 @@ export default [
   i18n: "FINANCE ADMIN",
   permissionName: "read_product",
 },
-{
-  url: null,
-  name: "SETTINGS",
-  icon: "SettingsIcon",
-  i18n: "SETTINGS",
-  permissionName: "read_product",
-},
-{
-url: null,
-name: "FINANCE ADMIN",
-icon: "ActivityIcon",
-i18n: "FINANCE ADMIN",
-},
-        {
-          url: '/pages/login',
-          name: 'LOGIN',
-          slug: 'pages-login',
-          i18n: 'LOGIN',
-          permissionName: "read_product",
-          target: '_blank'
-        },
-{
-  url: 'https://tripcarte.asia/registration/',
-  name: "REGISTER",
-  slug: "external",
-  i18n: "REGISTER",
-  permissionName: "read_product",
-  target: "_blank"
-},
-{
-  url: '/apps/chat',
-  name: 'SUPPORT',
-  slug: 'pages-login',
-  i18n: 'SUPPORT',
-  permissionName: "read_product",
-  target: '_blank'
-},
 //{
         //url: null,
         //name: "FINANCE ADMIN",

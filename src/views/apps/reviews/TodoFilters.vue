@@ -19,9 +19,18 @@
             </router-link>
         </div>
 
-        <vs-divider></vs-divider>
+        <!-- starred --><!-- starred -->
+        <div class="px-6 py-4">
+            <h5>Labels</h5>
 
-        <!-- starred -->
+            <template v-for="filter in todoFilters">
+                <router-link tag="span" class="flex mt-6 cursor-pointer" :class="{'text-primary': todoFilter == filter.filter}" :to="`${baseUrl}/${filter.filter}`" :key="filter.filter">
+                    <feather-icon :icon="filter.icon" :svgClasses="[{'text-primary stroke-current': todoFilter == filter.filter}, 'h-6 w-6']"></feather-icon>
+                    <span class="text-lg ml-3">{{ filter.filterName }}</span>
+                </router-link>
+            </template>
+
+        </div>
 
         <vs-divider></vs-divider>
 
@@ -39,15 +48,21 @@
 </template>
 
 <script>
-
 export default{
     data() {
         return {
             todoFilters: [
-                { filterName: 'Starred', filter: 'starred', icon: 'StarIcon' },
-                { filterName: 'Important', filter: 'important', icon: 'InfoIcon' },
-                { filterName: 'Completed', filter: 'completed', icon: 'CheckIcon' },
-                { filterName: 'Trashed', filter: 'trashed', icon: 'TrashIcon' },
+                { filterName: 'Spent less than 1 hour', filter: 'starred', icon: 'InfoIcon' },
+                { filterName: 'Spent 1 hour', filter: 'important', icon: 'InfoIcon' },
+                { filterName: 'Spent 2 hours', filter: 'completed', icon: 'InfoIcon' },
+                { filterName: 'Spent 3 hours', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Spent 4 hours', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Spent more than 4 hours', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Solo Traveler', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Couple', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Family with Children', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Group of Friends', filter: 'trashed', icon: 'InfoIcon' },
+                { filterName: 'Company / Corporate', filter: 'trashed', icon: 'InfoIcon' },
             ]
         }
     },

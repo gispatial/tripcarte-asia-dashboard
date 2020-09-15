@@ -18,12 +18,12 @@
 
             <div class="vx-col hidden lg:block lg:w-1/2">
 
-            <div align="center"><h4>"Welcome to TC Dashboard"<br></h4></div>
+            <div align="center"><h4>&nbsp;WELCOME TO TRIPCARTE.ASIA DASHBOARD MANAGEMENT PORTAL&nbsp;<br></h4></div>
             <div>
             </div>
               <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto" width="90%">
               <div>
-              <div align="center">Any welcome promotion text here</div>
+              <div align="center"><b>Get Discounted Attraction Tickets for Your Guests</b></div>
               </div>
               <div align="left"></div>
             </div>

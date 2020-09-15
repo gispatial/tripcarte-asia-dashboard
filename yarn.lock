@@ -1061,6 +1061,11 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@keeex/qrcodejs-kx@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@keeex/qrcodejs-kx/-/qrcodejs-kx-1.0.2.tgz#033c7b8ee8ca64eca834daa2ae7180d927b63ac1"
+  integrity sha512-YsCxWGO4P/ietkyTGV2YMAbwyYdFHJEfP48AcHQVAgJe6ybON/y8DAcHHdE9yItSKRQeQJ4tad9+wCPfZNH4mw==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -11545,6 +11550,14 @@ vue-property-decorator@^8.5.1:
   dependencies:
     vue-class-component "^7.1.0"
 
+vue-qr-generator@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-qr-generator/-/vue-qr-generator-3.0.1.tgz#509fe51807c03c12f3f641aad5a9f2d9d571acdb"
+  integrity sha512-1JkU1v3VP6tZKXqn/EeYDz61/m9yXdY3CZSg5yf7EC6P6G6wFpHKghJTbdWSncc54ZOSYIQ3PK8F8GLZ5oB77A==
+  dependencies:
+    "@keeex/qrcodejs-kx" "^1.0.2"
+    vue "^2.0.1"
+
 vue-qrcode-reader@^2.3.11:
   version "2.3.12"
   resolved "https://registry.yarnpkg.com/vue-qrcode-reader/-/vue-qrcode-reader-2.3.12.tgz#253567c28582b72f29cb06ccf01f8229383c5892"
@@ -11674,7 +11687,7 @@ vue@2.3.3:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
   integrity sha1-0eqo/eUkBzWkVj508sf+rZy7Bkw=
 
-vue@^2.1.8, vue@^2.4.4, vue@^2.5.16, vue@^2.6.10, vue@^2.6.11, vue@^2.6.12, vue@^2.6.9:
+vue@^2.0.1, vue@^2.1.8, vue@^2.4.4, vue@^2.5.16, vue@^2.6.10, vue@^2.6.11, vue@^2.6.12, vue@^2.6.9:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
