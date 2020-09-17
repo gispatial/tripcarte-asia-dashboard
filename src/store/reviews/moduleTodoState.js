@@ -12,6 +12,6 @@ export default {
     reviews: [],
     tasks: [],
     taskTags: [],
-    todoSearchQuery: '',
-    todoFilter: null,
+    todoSearchQuery: [],
+    todoFilter: [],
 }

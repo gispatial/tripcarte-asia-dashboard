@@ -3,7 +3,7 @@ import store from "../../../../store/store.js"
 import Vapi from "vuex-rest-api"
 
 // Token Refresh
-let isAlreadyFetchingAccessToken = false
+let isAlreadyFetchingAccessToken = true
 let subscribers = []
 
 function onAccessTokenFetched(access_token) {

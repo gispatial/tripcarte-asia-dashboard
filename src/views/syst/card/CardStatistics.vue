@@ -5,12 +5,12 @@
         <div class="vx-row">
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
 
-            <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/apps/reviews/all">View Details</vs-button>
+            <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/apps/reviews/all">View all Reviews</vs-button>
                 <statistics-card-line icon="FeatherIcon" statistic="1.4k" statisticTitle="Total Reviews Collected"></statistics-card-line>
             </div>
 
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
-            <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/syst/ag-grid-table">View Details</vs-button>
+            <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/syst/ag-grid-table">View all Tickets</vs-button>
                 <statistics-card-line icon="LayersIcon" statistic="350 tickets .+1" statisticTitle="Total Redemption this week"></statistics-card-line>
             </div>
 

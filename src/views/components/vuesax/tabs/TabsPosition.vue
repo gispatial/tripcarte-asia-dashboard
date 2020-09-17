@@ -9,7 +9,7 @@
 
 <template>
   <vs-tabs>
-    <vs-tab label="SCAN QR/ WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
+    <vs-tab label="WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
       <div class="demo-alignment">
       <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
       <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
@@ -50,13 +50,18 @@
          <template slot-scope="{data}">
 
     <vx-card>
-    <h6>ORDER DETAILS :</h6>
-    <vx-card v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id">
-    </vx-card>
+      <div align="center">
+        <img src="./qrr.png">
+    <h6>ORDER DETAILS :</h6><li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <div>
+    </div>
       <h6>NAME :</h6>
-      <vx-card v-for="post in posts" v-text="post.name" v-bind:key="post.order_id">
-  </vx-card>
-        </vx-card>
+
+      <vs-button size="large">
+      <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li></vs-button>
+      </li>
+      </div>
+    </vx-card>
 
 <table>
   <p>
@@ -67,30 +72,35 @@
     <th>REDEEM</th>
   </tr>
   <tr>
-    <td><li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"><li><br><h7><b>Person Type:</b></h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td>UNDERWATER WORLD LANGKAWI<br><h7><b>Person Type:</b> Adult</h7></li>
+    <td><h7>3</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li>
+    <td><h7>0</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li>
+    <td><vs-input v-model="title" placeholder="0" />
+  </vx-input-group>
+      <li v-for="post in posts" v-text="" v-bind:key=""></li>
+    <td>
+      <h7>&nbsp;</h7> <li v-if="post in posts" v-text="" v-bind:key=""></li>
 </td>
   </tr>
   <tr>
-    <td><h7><b>Ticket Type:</b></h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li></td>
-    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.meta_data"></li>
-      <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-        <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td><h7><b>Ticket Type:</b></h7> Malaysian - with MyKad
+    <td><h7>1</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li></td>
+    <td><h7>0</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li>
+        <td><vs-input v-model="title" placeholder="0" />
+      </vx-input-group>
+          <li v-for="post in posts" v-text="" v-bind:key=""></li>
+        <td>
+          <h7>&nbsp;</h7> <li v-if="post in posts" v-text="" v-bind:key=""></li>
+          <div class="flex bg-white p-6 chat-input-container" align="center">
+            <vs-button @click="randomCenter(barcodesearch)" color="success" icon="icon-send" type="gradient">Redeem</vs-button>
+          </div>
 </td>
   </tr>
 </table>
     </vs-td>
              </vs-td>
-             <div class="flex bg-white p-6 chat-input-container" align="right">
-                 <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch">Redeem</vs-button>
-             </div>
            </tbody>
          </template>
-         <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
         </vx-card>
     </ul>
     </div>
@@ -106,6 +116,11 @@ export default {
   components: { QrcodeStream },
   data () {
     return {
+      title: '',
+      username: '',
+      siteUsername: '',
+      amount: '',
+      textarea: '',
       activePrompt:false,
       colorx:"#f16565",
       popupActive: false,
@@ -132,6 +147,13 @@ export default {
       },
 
   methods: {
+    randomCenter() {
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      let color = `rgb(${getRandomInt(0,255)})`
+      this.$vs.notify({ title: 'Success!', text: 'Code has been redeemed', color: color, position: 'top-center' })
+    },
     barcodesearch() {
       axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: this.barcode },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
                   .then( (response) => this.posts = response.data )
