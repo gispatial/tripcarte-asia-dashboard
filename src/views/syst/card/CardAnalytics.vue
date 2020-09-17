@@ -13,31 +13,6 @@
         <div class="vx-row">
             <!-- SESSIONS BY DEVICES -->
             <div class="vx-col w-full lg:w-1/3 mb-base">
-                <vx-card title="Sessions By Device">
-                    <!-- SLOT = ACTION -->
-                    <template slot="actions">
-                        <change-time-duration-dropdown />
-                    </template>
-
-                    <!-- CHART -->
-                    <div slot="no-body">
-                        <vue-apex-charts type="donut" height="340" class="mb-12 mt-4" :options="analyticsData.sessionsByDeviceDonut.chartOptions" :series="sessionsData.series" />
-                    </div>
-
-                    <!-- CHART DATA -->
-                    <ul>
-                        <li v-for="deviceData in sessionsData.analyticsData" :key="deviceData.device" class="flex mb-3">
-                            <feather-icon :icon="deviceData.icon" :svgClasses="[`h-5 w-5 stroke-current text-${deviceData.color}`]"></feather-icon>
-                            <span class="ml-2 inline-block font-semibold">{{ deviceData.device }}</span>
-                            <span class="mx-2">-</span>
-                            <span class="mr-4">{{ deviceData.sessionsPercentage }}%</span>
-                            <div class="ml-auto flex -mr-1">
-                            <span class="mr-1">{{ deviceData.comparedResultPercentage }}%</span>
-                            <feather-icon :icon=" deviceData.comparedResultPercentage < 0 ? 'ArrowDownIcon' : 'ArrowUpIcon'" :svgClasses="[deviceData.comparedResultPercentage < 0 ? 'text-danger' : 'text-success'  ,'stroke-current h-4 w-4 mb-1 mr-1']"></feather-icon>
-                            </div>
-                        </li>
-                    </ul>
-                </vx-card>
             </div>
 
             <!-- PRODUCT ORDERS -->

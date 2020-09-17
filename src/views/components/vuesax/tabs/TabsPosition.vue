@@ -12,7 +12,7 @@
     <vs-tab label="SCAN QR/ WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
       <div class="demo-alignment">
       <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
-      <vs-popup fullscreen title="SCAN QR | WEB REDEMPTION" :active.sync="popupActive">
+      <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
         <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
 
          <qrcode-stream @decode="onDecode" @init="onInit" />
@@ -39,11 +39,6 @@
       </vx-input-group>
       <!-- /Append Button -->
     </div>
-      <vx-card>
-      <h6>ORDER DETAILS :</h6> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li><br>
-       <h6>NAME :</h6> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
-
-       </vx-card>
        <vx-card>
          <h6>REDEMPTION STATUS:</h6>
          <template slot="thead">
@@ -53,28 +48,38 @@
          </template>
 
          <template slot-scope="{data}">
-         <h5>REDEMPTION DETAILS:</h5>
+
+    <vx-card>
+    <h6>ORDER DETAILS :</h6>
+    <vx-card v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id">
+    </vx-card>
+      <h6>NAME :</h6>
+      <vx-card v-for="post in posts" v-text="post.name" v-bind:key="post.order_id">
+  </vx-card>
+        </vx-card>
 
 <table>
   <p>
   <tr>
-    <th>Item</th>
-    <th>Purchased</th>
-    <th>Remaining</th>
-    <th>Redeem</th>
+    <th>ITEM</th>
+    <th>PURCHASED</th>
+    <th>REMAINING</th>
+    <th>REDEEM</th>
   </tr>
   <tr>
-    <td><h7>Person Type:</h7> <li v-for="post in posts" v-text="Adult" v-bind:key="post.order_id"></li></td>
-    <td><h7>3</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
-    <td><h7>0</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
-    <td><h7>0</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+    <td><li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"><li><br><h7><b>Person Type:</b></h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
 </td>
   </tr>
   <tr>
-    <td><h7>Ticket Type: </h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li></td>
-    <td><h7>1</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
-      <td><h7>0</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
-        <td><h7>Redeem</h7> <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li>
+    <td><h7><b>Ticket Type:</b></h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li></td>
+    <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.meta_data"></li>
+      <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+        <td><h7>&nbsp;</h7> <li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
 </td>
   </tr>
 </table>

@@ -11,10 +11,9 @@
 
 <template functional>
     <footer class="the-footer flex-wrap justify-between" :class="classes">
-        <span>&copy; {{ new Date().getFullYear() }} <a href="https://tripcarte.asia/" target="_blank" rel="nofollow">Tripcarte.Asia</a>, All rights Reserved</span>
+        <span>&copy; {{ new Date().getFullYear() }} <a href="https://tripcarte.asia/" target="_blank" rel="nofollow">Tripcarte.Asia</a>, All Rights Reserved. SSM</span>
         <span class="md:flex hidden items-center">
-            <span>&copy; 2020. Tripcarte Sdn Bhd. All Rights Reserved.
-SSM Company License: 201501044826.<br></span>
+            <span>Company License: 201501044826.<br></span>
             <feather-icon icon="SettingsIcon" svgClasses="stroke-current text-danger w-6 h-6" class="ml-2" />
         </span>
 

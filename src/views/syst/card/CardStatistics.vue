@@ -4,6 +4,7 @@
         <!-- ROW 3 -->
         <div class="vx-row">
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
+
             <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/apps/reviews/all">View Details</vs-button>
                 <statistics-card-line icon="FeatherIcon" statistic="1.4k" statisticTitle="Total Reviews Collected"></statistics-card-line>
             </div>

@@ -49,7 +49,7 @@ const router = new Router({
                 {
                     path: '/dashboard/home',
                     name: 'dashboard-home',
-                    component: () => import('./views/Home.vue'),
+                    component: () => import('./views/DashboardHome.vue'),
                     meta: {
                         rule: 'editor',
                     }
@@ -57,7 +57,7 @@ const router = new Router({
                 {
                     path: '/dashboard/home',
                     name: 'dashboard-home',
-                    component: () => import('./views/ECommerceItemDetailView.vue'),
+                    component: () => import('./views/Home.vue'),
                     meta: {
                         rule: 'admin'
                     }
