@@ -6,22 +6,34 @@
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
 
             <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/apps/reviews/all">View all Reviews</vs-button>
-                <statistics-card-line icon="FeatherIcon" statistic="1.4k" statisticTitle="Total Reviews Collected"></statistics-card-line>
+                <statistics-card-line icon="FeatherIcon" statistic="1.8k" statisticTitle="Total Reviews Collected"
+                :chartData="subscribersGained.series"
+                color="success"
+                type="area" />></statistics-card-line>
             </div>
 
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
             <vs-button icon-pack="feather" icon="icon-chevrons-right" icon-after class="shadow-md w-full lg:mt-0 mt-4" href="/syst/ag-grid-table">View all Tickets</vs-button>
-                <statistics-card-line icon="LayersIcon" statistic="350 tickets .+1" statisticTitle="Total Redemption this week"></statistics-card-line>
+                <statistics-card-line icon="LayersIcon" statistic="17 tickets .+1" statisticTitle="Total Redemption this week"
+                :chartData="ordersRecevied.series"
+                color="success"
+                type="area" />></statistics-card-line>
             </div>
 
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
                 <img src="@/assets/images/elements/divider.png" height="36" >
-                <statistics-card-line icon="ShoppingBagIcon" statistic="14k" statisticTitle="Total Redemption this year">
+                <statistics-card-line icon="ShoppingBagIcon" statistic="RM 1.1k " statisticTitle="Total Redemption this year"
+                  :chartData="revenueGenerated.series"
+                  color="success"
+                  type="area" />
                 </statistics-card-line>
             </div>
             <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4">
                 <img src="@/assets/images/elements/divider.png" height="36" >
-                <statistics-card-line icon="DollarSignIcon" statistic="RM 2300" statisticTitle="Total Pending Payout"></statistics-card-line>
+                <statistics-card-line icon="DollarSignIcon" statistic="RM 410.00" statisticTitle="Total Pending Payout"
+                :chartData="quarterlySales.series"
+                color="success"
+                type="area" />></statistics-card-line>
             </div>
         </div>
 

@@ -24,20 +24,20 @@
 
       <!-- CARD 2: TOTAL REVIEWERS STATS -->
       <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mb-base">
-        <statistics-card-line icon="UsersIcon" statistic="12k" statisticTitle="TOTAL REVIEWS COLLECTED" :chartData="subscribersGained.series" type="area"></statistics-card-line>
+        <statistics-card-line icon="UsersIcon" statistic="1.8k" statisticTitle="TOTAL REVIEWS COLLECTED" :chartData="subscribersGained.series" type="area"></statistics-card-line>
       </div>
 
       <!-- CARD 3: TOTAL REDEMPTIONS STATS -->
       <div class="vx-col w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mb-base">
-        <statistics-card-line icon="ShoppingCartIcon" statistic="350 tickets.+1" statisticTitle="TOTAL REDEMPTION THIS WEEK" :chartData="ordersRecevied.series" type="area"></statistics-card-line>
+        <statistics-card-line icon="ShoppingCartIcon" statistic="17 tickets .+1" statisticTitle="TOTAL REDEMPTION THIS WEEK" :chartData="ordersRecevied.series" type="area"></statistics-card-line>
       </div>
     </div>
 
     <!-- CARD 4: TOTAL PAYOUT PENDING -->
     <div class="vx-col w-full lg:w-1/1 mb-base">
-        <statistics-card-line icon="ShoppingCartIcon" statistic="350 tickets.+1" statisticTitle="TOTAL REDEMPTION THIS WEEK" :chartData="salesBarSession.series" type="area"></statistics-card-line>
+        <statistics-card-line icon="ShoppingCartIcon" statistic="RM 1.1k" statisticTitle="TOTAL REDEMPTION THIS YEAR" :chartData="salesBarSession.series" type="area"></statistics-card-line>
       </div>
-      <statistics-card-line icon="DollarSignIcon" statistic="14k" statisticTitle="TOTAL PENDING PAYOUTS" :chartData="salesBarSession.series" type="area"></statistics-card-line>
+      <statistics-card-line icon="DollarSignIcon" statistic="RM 410.00" statisticTitle="TOTAL PENDING PAYOUTS" :chartData="salesBarSession.series" type="area"></statistics-card-line>
     </div>
 
     <!-- CARD 3: ORDER RECEIVED -->
