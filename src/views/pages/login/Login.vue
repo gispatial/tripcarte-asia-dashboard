@@ -18,26 +18,30 @@
 
             <div class="vx-col hidden lg:block lg:w-1/2">
 
-            <div align="center"><h4>&nbsp;WELCOME TO TRIPCARTE.ASIA DASHBOARD MANAGEMENT PORTAL&nbsp;<br></h4></div>
-            <div>
-            </div>
-              <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto" width="90%">
-              <div>
-              <div align="center"><b>Get Discounted Attraction Tickets for Your Guests</b></div>
+            <div align="center">
+              <vx-card>
+                <div>&nbsp;</div>
+              <h3> <b>TRIPCARTE.ASIA</b></h3><br>  &nbsp;&nbsp;NEW VERSION DASHBOARD & MANAGEMENT PORTAL<br>
+              <div>&nbsp;</div>
+          </vx-card></div>
+              <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto" width="100%">
+              <div align="center">
+                <vx-card><b>"Get Discounted with your purchases on Attraction Tickets for your guests"</b>
+          <div>&nbsp;</div>
+              </vx-card>
               </div>
               <div align="left"></div>
             </div>
 
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 d-theme-dark-bg">
               <div class="px-8 pt-8 login-tabs-container">
-
                 <div class="vx-card__title mb-4">
-                  <h4 class="mb-4">Login</h4>
-                  <p>Welcome back merchants & partners, <br>Please login to your existing account.</p>
-                </div>
-
+                  <img src="@/assets/images/pages/logo-login.png" alt="login" class="mx-auto" width="38%">
+                  <div>&nbsp;</div>
+                  <p>Welcome back, <b>Merchants & Partners</b>, Please sign-in back to your existing account.</p>
+                </div><div>&nbsp;</div>
                 <vs-tabs>
-                  <vs-tab label="SIGN-IN">
+                  <vs-tab label="LOGIN">
                     <login-jwt></login-jwt>
                   </vs-tab>
                 </vs-tabs>
