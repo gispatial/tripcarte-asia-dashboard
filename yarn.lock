@@ -9194,6 +9194,27 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
+qrcanvas-vue@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/qrcanvas-vue/-/qrcanvas-vue-2.0.5.tgz#33f9d6850525615f645cd6cecff65b48171bdd82"
+  integrity sha512-cS1KtTot7inl0RllpEEidUCOgDYYq7vaa5GYGWSxlVtFpBqOpatgsHpUOPjnhjrxecni5lwiMehsGD8HWmTwuA==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    qrcanvas "^3.0.6"
+
+qrcanvas@^3.0.6:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/qrcanvas/-/qrcanvas-3.1.1.tgz#92436d815133207862aa1bd0c3e3baa9f1b1d119"
+  integrity sha512-mbzbqFUSCrhhbdgd36VYJgROboX20Jv+hkZmZEIuqNQ/D65JHWWGltLGVEvK2gWfGcWVzJJrmECkffdEfzULSg==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    qrcode-generator "^1.4.4"
+
+qrcode-generator@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/qrcode-generator/-/qrcode-generator-1.4.4.tgz#63f771224854759329a99048806a53ed278740e7"
+  integrity sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw==
+
 qrcode.vue@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/qrcode.vue/-/qrcode.vue-1.7.0.tgz#c54b2934f0650c10d92785d08aaad36c55e0fc56"

@@ -18,12 +18,40 @@
 
             <div class="vx-col hidden lg:block lg:w-1/2">
 
-            <div align="center"><h4>&nbsp;WELCOME TO TRIPCARTE.ASIA DASHBOARD MANAGEMENT PORTAL&nbsp;<br></h4></div>
+            <div align="center">
+              <h4><b>TRIPCARTE.ASIA</b>
+                : THE DASHBOARD MANAGEMENT PORTAL</h4><br>
+            </div>
+            <div>
+              &nbsp;
+            </div>
+            <div>
+              &nbsp;
+            </div>
+            <div>
+              &nbsp;
+            </div>
+            <div>
+              &nbsp;
+            </div>
             <div>
             </div>
               <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto" width="90%">
               <div>
+                &nbsp;
+              </div>
+              <div>
+                &nbsp;
+              </div>
               <div align="center"><b>Get Discounted Attraction Tickets for Your Guests</b></div>
+              <div>
+                &nbsp;
+              </div>
+              <div>
+                &nbsp;
+              </div>
+              <div>
+              <div></div>
               </div>
               <div align="left"></div>
             </div>
@@ -32,12 +60,15 @@
               <div class="px-8 pt-8 login-tabs-container">
 
                 <div class="vx-card__title mb-4">
-                  <h4 class="mb-4">Login</h4>
-                  <p>Welcome back merchants & partners, <br>Please login to your existing account.</p>
+                    <img src="@/assets/images/pages/logo.png" alt="login" class="mx-auto" width="25%">
+                    <div>
+                      &nbsp;
+                    </div>
+                  <p><b>Welcome back</b>, merchants & partners, <br>Please sign-in to your current existing account.</p>
                 </div>
 
                 <vs-tabs>
-                  <vs-tab label="SIGN-IN">
+                  <vs-tab label="LOGIN">
                     <login-jwt></login-jwt>
                   </vs-tab>
                 </vs-tabs>

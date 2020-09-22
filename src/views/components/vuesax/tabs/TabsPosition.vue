@@ -44,61 +44,90 @@
          <template slot="thead">
            <vs-td>ITEM</vs-td>
            <vs-td>PURCHASED</vs-td>
-           <vs-td>REDEEM</vs-td>
          </template>
 
          <template slot-scope="{data}">
 
     <vx-card>
       <div align="center">
-        <img src="./qrr.png">
-    <h6>ORDER DETAILS :</h6><li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
-    <div>
-    </div>
-      <h6>NAME :</h6>
+        <table style="width:100%">
+  <tr>
+    <th><br><h4>ORDER DETAILS :</h4><br>
+      <div>
+        &nbsp;
+      </div>
+<li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
+  <div>
+    &nbsp;
+  </div>
+      NAME :<br>
+        <div>
 
-      <vs-button size="large">
-      <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li></vs-button>
-      </li>
+    <vs-button size="large">
+    <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li></vs-button>
+        </div></td></th>
+
+    <div>
+      &nbsp;
+    </div>
+  <img src="./qr3.png" width="24%">
+        <li>796925f256cacaade1</li>
+  </tr>
+</td>
+</table>
       </div>
     </vx-card>
 
 <table>
   <p>
   <tr>
-    <th>ITEM</th>
-    <th>PURCHASED</th>
-    <th>REMAINING</th>
-    <th>REDEEM</th>
+    <th><b>ITEM</b></th>
+    <th><b>PURCHASED</b></th>
+    <th><b>REMAINING</b></th>
+    <th><b>REDEEM</b></th>
   </tr>
   <tr>
-    <td>UNDERWATER WORLD LANGKAWI<br><h7><b>Person Type:</b> Adult</h7></li>
-    <td><h7>3</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li>
-    <td><h7>0</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li>
-    <td><vs-input v-model="title" placeholder="0" />
-  </vx-input-group>
-      <li v-for="post in posts" v-text="" v-bind:key=""></li>
+    <td>UNDERWATER WORLD LANGKAWI<p></p>
+      <h7><b>Person Type:</b></h7> Adult
+  </td>
     <td>
-      <h7>&nbsp;</h7> <li v-if="post in posts" v-text="" v-bind:key=""></li>
+      <li v-for="post in posts" v-text="3.0" v-bind:key="post.order_id"></li>
+      </li>
+    <td>
+      <li v-for="post in posts" v-text="0.0" v-bind:key="post.order_id">
+      </li>
+    <td>
+      <vx-tooltip text="Tooltip Default">
+      <vs-input-number v-model="number1" />
+      </vx-tooltip>
+  </vx-input-group>
+    <td>
+      <li v-for="post in posts" v-text="" v-bind:key="post.quantity"></li>
 </td>
   </tr>
   <tr>
-    <td><h7><b>Ticket Type:</b></h7> Malaysian - with MyKad
-    <td><h7>1</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li></td>
-    <td><h7>0</h7> <li v-for="post in posts" v-text="" v-bind:key=""></li>
-        <td><vs-input v-model="title" placeholder="0" />
-      </vx-input-group>
-          <li v-for="post in posts" v-text="" v-bind:key=""></li>
+    <td><h7><b>Ticket Type:</b></h7> Malaysian - with MyKad</td>
+    <td><li v-for="post in posts" v-text="0.0" v-bind:key="post.quantity"></li></td>
+        <td><li v-for="post in posts" v-text="0.0" v-bind:key="post.quantity"></li>
+        </vx-input-group>
+      </td>
+        <div>
+
+            <vx-tooltip text="Tooltip Default">
+            <vs-input-number v-model="number2" />
+            </vx-tooltip>
+        </div>
+
+        <li v-for="post in posts" v-text="post.order_items" v-bind:key=""></li>
+          <vs-button @click="randomCenter(barcodesearch)" color="success" type="gradient">Redeem</vs-button>
         <td>
-          <h7>&nbsp;</h7> <li v-if="post in posts" v-text="" v-bind:key=""></li>
-          <div class="flex bg-white p-6 chat-input-container" align="center">
-            <vs-button @click="randomCenter(barcodesearch)" color="success" icon="icon-send" type="gradient">Redeem</vs-button>
-          </div>
+          <h7>&nbsp;</h7>
+          <li v-if="post in posts" v-text="" v-bind:key=""></li>
 </td>
   </tr>
 </table>
     </vs-td>
-             </vs-td>
+  </vs-td>
            </tbody>
          </template>
         </vx-card>
@@ -109,13 +138,20 @@
 </template>
 
 <script>
+import { QRCanvas } from 'qrcanvas-vue'
 import { QrcodeStream, } from 'vue-qrcode-reader'
 import { VTree, VSelectTree}  from 'vue-tree-halower'
 import axios from "@../../axios"
 export default {
-  components: { QrcodeStream },
+  components: { QRCanvas,
+    QrcodeStream },
   data () {
     return {
+      options: {
+        data: 'post.order_id',
+      },
+      number1: '0',
+      number2: '0',
       title: '',
       username: '',
       siteUsername: '',
@@ -162,7 +198,7 @@ export default {
     onDecode (result) {
       //this.result = result
       axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: result },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
-                  .then( (response) => this.posts = response.data )
+                  .then( (response) => this.posts = response.post.redeem )
                   .catch(error => this.posts = [{order_id: 'Invalid Barcode!'}]);
     },
     async onInit (promise) {
