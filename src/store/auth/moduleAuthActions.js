@@ -13,36 +13,55 @@ import jwt from "../../http/requests/auth/jwt/index.js"
 import router from '@/router'
 
 export default {
-	logout() {
-	},	
     loginJWT({ commit }, payload) {
       return new Promise((resolve,reject) => {
+        commit('auth_request')
         jwt.login(payload.userDetails.username, payload.userDetails.password)
           .then(response => {
 
             // If there's user data in response
             if(response.status == 200) {
               // Navigate User to homepage
-              router.push(router.currentRoute.query.to || '/')
+              //router.push(router.currentRoute.query.to || '/')
 
               // Set accessToken
-              localStorage.setItem("accessToken", response.data["token"])
+              localStorage.setItem('accessToken', response.data['token'])
 
               // Update user details
               commit('UPDATE_USER_INFO', response.data, {root: true})
 
               // Set bearer token in axios
               //commit("SET_BEARER", response.data.accessToken)
+              commit('auth_success', response.data['token'])
+
+              // Navigate User to homepage
+              router.push('/')
 
               resolve(response)
             }else {
-              reject({message: "Wrong Username or Password"})
+              reject({message: 'Please try again later.'})
             }
 
           })
-          .catch(error => { reject({message: "Username or password is not valid"}) })
+          .catch(error => { 
+            commit('auth_error')
+            reject({message: 'Please double-check your username and password.'}) })
       })
     },
+    logout({commit}){
+      return new Promise((resolve, reject) => {
+        commit('logout')
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('userInfo')
+        
+        // Navigate back to Login Page
+        router.push(router.currentRoute.query.to || '/pages/login')
+        
+        resolve()
+      })
+    }
+    
+    /*
     registerUserJWT({ commit }, payload) {
 
       const { displayName, email, password, confirmPassword } = payload.userDetails
@@ -73,4 +92,5 @@ export default {
         jwt.refreshToken().then(response => { resolve(response) })
       })
     }
+    */
 }

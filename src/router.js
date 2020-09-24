@@ -19,6 +19,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store/store.js'
 import auth from "@/auth/authService";
 //import 'firebase/auth'
 
@@ -54,6 +55,7 @@ const router = new Router({
                         rule: 'editor',
                     }
                 },
+                /*
                 {
                     path: '/dashboard/home',
                     name: 'dashboard-home',
@@ -62,6 +64,7 @@ const router = new Router({
                         rule: 'admin'
                     }
                 },
+                */
 
 
                 // =============================================================================
@@ -1310,6 +1313,7 @@ const router = new Router({
                     name: 'page-login',
                     component: () => import('@/views/pages/login/Login.vue'),
                     meta: {
+                        disableIfLoggedIn: true,
                         rule: 'editor'
                     }
                 },
@@ -1404,6 +1408,22 @@ router.afterEach(() => {
 })
 
 router.beforeEach((to, from, next) => {
+
+     if (to.matched.some(record => record.meta.disableIfLoggedIn)){
+        if (store.getters['auth/isLoggedIn']) {
+          next('/')
+        } else {
+          next()
+        }
+      }else{
+        if (!store.getters['auth/isLoggedIn']) {
+            next('/pages/login')
+          } else {
+            next()
+          }
+      }
+
+    /*
     //firebase.auth().onAuthStateChanged(() => {
 
         // get firebase current user
@@ -1433,8 +1453,9 @@ router.beforeEach((to, from, next) => {
         // Specify the current path as the customState parameter, meaning it
         // will be returned to the application after auth
         // auth.login({ target: to.path });
-
+        */
     });
+    
 
 
 export default router

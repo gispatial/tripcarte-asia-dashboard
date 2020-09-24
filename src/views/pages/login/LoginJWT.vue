@@ -51,6 +51,7 @@ export default {
     },
   },
   methods: {
+    /*
     checkLogin() {
       // If user is already logged in notify
       if (this.$store.state.auth.isUserLoggedIn()) {
@@ -70,9 +71,10 @@ export default {
       }
       return true
     },
+    */
     loginJWT() {
 
-      if (!this.checkLogin()) return
+      //if (!this.checkLogin()) return
 
       // Loading
       this.$vs.loading()
@@ -99,7 +101,7 @@ export default {
         })
     },
     registerUser() {
-      if (!this.checkLogin()) return
+      //if (!this.checkLogin()) return
         window.open('https://tripcarte.asia/registration/', '_blank');
     }
   }

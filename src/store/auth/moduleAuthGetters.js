@@ -8,4 +8,13 @@
 ==========================================================================================*/
 
 
-export default {}
+export default {
+
+  isLoggedIn: state => {
+    return !!state.token; // code to check if authenticated
+  },
+  authStatus: state => {
+    return state.status; // code to check status
+  }
+
+}

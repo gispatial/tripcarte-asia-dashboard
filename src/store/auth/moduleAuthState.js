@@ -11,6 +11,7 @@
 import auth from "@/auth/authService";
 
 export default {
+  /*
     isUserLoggedIn: () => {
         let isAuthenticated = false
 
@@ -22,4 +23,7 @@ export default {
 
         return (localStorage.getItem('userInfo') && isAuthenticated)
     },
+    */
+    status: '',
+    token: localStorage.getItem('accessToken') || ''
 }

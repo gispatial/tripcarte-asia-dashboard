@@ -69,6 +69,10 @@ export default {
   },
   methods: {
     logout() {
+        
+        this.$store.dispatch('auth/logout')
+        this.$store.state.AppActiveUser = {};
+        /*
         // If JWT login
         if(localStorage.getItem("accessToken")) {
           localStorage.removeItem("accessToken")
@@ -81,6 +85,7 @@ this.$store.state.AppActiveUser = {};
 
         // This is just for demo Purpose. If user clicks on logout -> redirect
         this.$router.push('/pages/login').catch(() => {})
+        */
     },
   }
 }

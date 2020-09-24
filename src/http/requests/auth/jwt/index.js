@@ -2,6 +2,7 @@ import axios from "../../../axios/index.js"
 import store from "../../../../store/store.js"
 import Vapi from "vuex-rest-api"
 
+/*
 // Token Refresh
 let isAlreadyFetchingAccessToken = true
 let subscribers = []
@@ -13,8 +14,18 @@ function onAccessTokenFetched(access_token) {
 function addSubscriber(callback) {
   subscribers.push(callback)
 }
+*/
+
+const config = {
+  headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
+};
+
+const bodyParameters = {
+  key: "value"
+};
 
 export default {
+  /*
   init() {
     axios.interceptors.response.use(function (response) {
       return response
@@ -45,17 +56,23 @@ export default {
       return Promise.reject(error)
     })
   },
+  */
   login(uname, pwd) {
     return axios.post("https://partners.tripcarte.asia/wp-json/jwt-auth/v1/token", {username: uname, password: pwd})
   },
+  refreshtoken() {
+    return axios.post('https://partners.tripcarte.asia/wp-json/jwt-auth/v1/token/validate', bodyParameters, config)
+  }
+  /*
   registerUser(name, email, pwd) {
     return axios.post("/api/auth/register", {displayName: name, email: email, password: pwd})
   },
   refreshToken() {
     return axios.post("/api/auth/refresh-token", {accessToken: localStorage.getItem("accessToKen")})
   }
+  */
 }
-
+/*
 var myHeaders = new Headers();
 myHeaders.append("underwaterworldadmin", "abcd1234!");
 myHeaders.append("Authorization", "Bearer {{token}}");
@@ -70,3 +87,4 @@ fetch("https://partners.tripcarte.asia/wp-json/tripcarte_api/v1/my/reviews", req
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+  */

@@ -71,7 +71,7 @@ export default {
   async created() {
 
     // jwt
-    jwt.init()
+    //jwt.init()
 
     let dir = this.$vs.rtl ? "rtl" : "ltr"
     document.documentElement.setAttribute("dir", dir)
