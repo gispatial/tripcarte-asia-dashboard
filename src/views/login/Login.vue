@@ -33,7 +33,12 @@
                 <div class="vx-card__title mb-4">
                     <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto" width="50%">
                   <h4 class="mb-4">Login</h4>
-                  <p>Welcome back merchants & partners, <br>Please login to your existing account.</p>
+                  <p><vx-tooltip
+                  title="Not sure with this?"
+                  color="danger"
+                  text="Discounted definition: sale of attraction will be deduct from normal rates pricing. All terms & condition apply!">
+                 <vs-button color="dark" type="flat">Welcome back</vs-button>
+               </vx-tooltip>&nbsp;merchants & partners, <br>Please login to your existing account.</p>
                 </div>
 
                 <vs-tabs>
