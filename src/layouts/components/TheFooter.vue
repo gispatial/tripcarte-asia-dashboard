@@ -13,8 +13,8 @@
     <footer class="the-footer flex-wrap justify-between" :class="classes">
         <span>&copy; {{ new Date().getFullYear() }} <a href="https://tripcarte.asia/" target="_blank" rel="nofollow">Tripcarte.Asia</a>, All Rights Reserved.</span>
         <span class="md:flex hidden items-center">
-          <feather-icon icon="SettingsIcon" svgClasses="stroke-current text-danger w-6 h-6" class="ml-2" />
-            &nbsp;<span>MS Travel Agent Licence: KPK/LN 9283.<br></span>
+          <feather-icon icon="BookIcon" svgClasses="stroke-current text-danger w-6 h-6" class="ml-2" />
+            &nbsp;<span>Developed by NetquestDev. &copy; 2020. Staging Ncov_0.0.5<br></span>
         </span>
 
         <!-- buyNow component -->

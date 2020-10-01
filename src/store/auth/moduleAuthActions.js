@@ -43,7 +43,7 @@ export default {
             }
 
           })
-          .catch(error => { 
+          .catch(error => {
             commit('auth_error')
             reject({message: 'Please double-check your username and password.'}) })
       })
@@ -53,35 +53,29 @@ export default {
         commit('logout')
         localStorage.removeItem('accessToken')
         localStorage.removeItem('userInfo')
-        
+
         // Navigate back to Login Page
         router.push(router.currentRoute.query.to || '/pages/login')
-        
+
         resolve()
       })
     }
-    
+
     /*
     registerUserJWT({ commit }, payload) {
-
       const { displayName, email, password, confirmPassword } = payload.userDetails
-
       return new Promise((resolve,reject) => {
-
         // Check confirm password
         if(password !== confirmPassword) {
           reject({message: "Password doesn't match. Please try again."})
         }
-
         jwt.registerUser(displayName, email, password)
           .then(response => {
             // Redirect User
             router.push(router.currentRoute.query.to || '/')
-
             // Update data in localStorage
             localStorage.setItem("accessToken", response.data.accessToken)
             commit('UPDATE_USER_INFO', response.data.userData, {root: true})
-
             resolve(response)
           })
           .catch(error => { reject(error) })

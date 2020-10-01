@@ -3,7 +3,7 @@
 	Description: Main vue file - APP
 	----------------------------------------------------------------------------------------
 	Item Name: Tripcarte.Asia Dashboard Management Portal
-	Author: Netquest
+	Author: Netquest Solutions Sdn. Bhd.
 	Author URL: http://demo.tripcarte.asia/
 ========================================================================================== -->
 

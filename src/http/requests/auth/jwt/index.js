@@ -60,9 +60,12 @@ export default {
   login(uname, pwd) {
     return axios.post("https://partners.tripcarte.asia/wp-json/jwt-auth/v1/token", {username: uname, password: pwd})
   },
-  refreshtoken() {
+  registerUser(uname, email, pwd) {
+    return axios.post("https://partners.tripcarte.asia/wp-json/jwt-auth/v1/token/register", {displayName: uname, email: email, password: pwd})
+  },
+  refreshtoken(e, response, type, el) {
     return axios.post('https://partners.tripcarte.asia/wp-json/jwt-auth/v1/token/validate', bodyParameters, config)
-  }
+  },
   /*
   registerUser(name, email, pwd) {
     return axios.post("/api/auth/register", {displayName: name, email: email, password: pwd})

@@ -6,14 +6,6 @@
     Developer: Netquest's TripcarteDev Team
     GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
-<!-- =========================================================================================
-    File Name: TabsPosition.vue
-    Description: Rendering of default Tabs
-    ----------------------------------------------------------------------------------------
-    Item Name: Tripcarte.Asia Dashboard Management Portal
-    Developer: Netquest's TripcarteDev Team
-    GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
-========================================================================================== -->
 
 <template>
   <vs-tabs>
@@ -48,7 +40,7 @@
     </div>
        <vx-card>
 
-         <h6>REDEMPTION STATUS:</h6>
+         <h7>REDEMPTION STATUS:</h7>
          <template slot="thead">
            <vs-td>ITEM</vs-td>
            <vs-td>PURCHASED</vs-td>
@@ -155,6 +147,44 @@
   </vs-td>
            </tbody>
          </template>
+         <div class="demo-alignment">
+
+      <vs-button color="primary" type="flat"
+        @click="$vs.notify({
+          title:'Position Default',
+          text:'Lorem ipsum dolor sit amet, consectetur',
+          color:'primary'})">Position Default</vs-button>
+
+      <vs-button color="success" type="flat"
+        @click="$vs.notify({
+          title:'Position top-right',
+          text:'Lorem ipsum dolor sit amet, consectetur',
+          color:'success',
+          position:'top-right'})">Position Top Right</vs-button>
+
+      <vs-button color="danger" type="flat"
+        @click="$vs.notify({
+          title:'Position top-left',
+          text:'Lorem ipsum dolor sit amet, consectetur',
+          color:'danger',
+          position:'top-left'})">Position Top Left</vs-button>
+
+      <vs-button color="warning" type="flat"
+        @click="$vs.notify({
+          title:'Position bottom-left',
+          text:'Lorem ipsum dolor sit amet, consectetur',
+          color:'warning',
+          position:'bottom-left'})">Position Bottom Left</vs-button>
+
+      <vs-button color="dark" type="flat"
+        @click="$vs.notify({
+          title:'Position bottom-center',
+          text:'Lorem ipsum dolor sit amet, consectetur',
+          color:'dark',
+          position:'bottom-center'})"> Position Bottom Center</vs-button>
+
+      <vs-button @click="randomCenter()" color="danger" type="gradient">Position Top Center Random Color</vs-button>
+  </div>
 
         </vx-card>
     </ul>
@@ -227,7 +257,6 @@ export default {
           return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
         }
       },
-
   methods: {
     randomCenter() {
       function getRandomInt(min, max) {
@@ -266,7 +295,6 @@ export default {
         }
       }
     },
-
   commissions()
   { return this.$store.state.commission.commissions },
   queriedItems() {
@@ -274,7 +302,6 @@ export default {
     return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
   }
 },
-
 formatJson(filterVal, jsonData) {
   return jsonData.map(v => filterVal.map(j => {
     // Add col name which needs to be translated
@@ -283,11 +310,9 @@ formatJson(filterVal, jsonData) {
     // } else {
     //   return v[j]
     // }
-
     return v[j]
   }))
 },
-
 clearFields() {
   this.fileName = ""
   this.cellAutoWidth = true
@@ -321,16 +346,13 @@ if(!moduleCommission.isRegistered) {
 }
 </script>
 
-
 <style lang="scss">
 table {
   border-spacing: 0;
 }
-
 td {
   padding: 2px 5px;
 }
-
 .jsonOdd {
   background: #eee;
 }

@@ -10,18 +10,25 @@
 <template>
     <vx-card title="">
       <vx-card>
-        <h4>ORDER DETAILS :</h4><br>
+        <div align="center">
+          <table style="width:100%">
+      <tr>
+      <th><h4>ORDER DETAILS :</h4><br>
         <div>
-          <ul>
-              <div class="flex bg-white p-6 chat-input-container">
-                  <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
-                  <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
-              </div>
-          </ul>
+
+          <vs-button size="large">
+        <li v-for="post in posts" v-text="post.order_id"></li></vs-button>
+        </div>
+        NAME :<br>
+      </th></tr>
+    </vx-card>
+
+          <div>
+      <vs-button size="large">
+      <li v-for="post in posts" v-text="post.name"></li></vs-button>
           </div>
         </td>
-    </th>
-  </tr>
+      </th>
 
       <div>
         &nbsp;
