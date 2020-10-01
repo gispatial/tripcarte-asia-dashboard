@@ -6,29 +6,36 @@
     Developer: Netquest's TripcarteDev Team
     GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
+<!-- =========================================================================================
+    File Name: TabsPosition.vue
+    Description: Rendering of default Tabs
+    ----------------------------------------------------------------------------------------
+    Item Name: Tripcarte.Asia Dashboard Management Portal
+    Developer: Netquest's TripcarteDev Team
+    GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
+========================================================================================== -->
 
 <template>
   <vs-tabs>
-    <vs-tab label="WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
-      <div class="demo-alignment">
+  <vs-tab label="WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
+    <div class="demo-alignment">
       <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
-      <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
+       <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
         <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
-
-         <qrcode-stream @decode="onDecode" @init="onInit" />
-           <div></div>
-           <div align="center"><h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
-      </vs-popup>
-  </div>
-    <div>
-      <div>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or
-        </p>
+           <qrcode-stream @decode="onDecode" @init="onInit" />
+             <div>
+             </div>
+         <div align="center"><h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
+        </vs-popup>
       </div>
-
-      <ul>
-          <div>
+         <div>
+           <div>
+           <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or
+           </p>
+           </div>
+           <ul>
+             <div>
             <div class="flex bg-white p-6 chat-input-container">
                 <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
                 <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
@@ -40,6 +47,7 @@
       <!-- /Append Button -->
     </div>
        <vx-card>
+
          <h6>REDEMPTION STATUS:</h6>
          <template slot="thead">
            <vs-td>ITEM</vs-td>
@@ -47,82 +55,99 @@
          </template>
 
          <template slot-scope="{data}">
-
-    <vx-card>
       <div align="center">
         <table style="width:100%">
   <tr>
-    <th><br><h4>ORDER DETAILS :</h4><br>
+    <th>Order details : </th>
+    <th colspan="2">Qr Code :</th>
+  </tr>
+  <tr>
+    <td><vs-button size="large">
+     Order details : <li v-for="post in posts" v-text="post.order_id"></li>
+     <br>
+    Name : <li v-for="post in posts" v-text="post.name"></li></vs-button></td>
+    <td></td>
+    <td><img src="./tc-code.svg" width="167"></td>
+  </tr>
+</table>
+      <td>
+      </td>
+        </table>
+        <table style="width:100%">
+  <tr>
+    <th>
       <div>
-        &nbsp;
       </div>
-<li v-for="post in posts" v-text="post.order_id" v-bind:key="post.order_id"></li>
   <div>
-    &nbsp;
   </div>
-      NAME :<br>
+
         <div>
 
-    <vs-button size="large">
-    <li v-for="post in posts" v-text="post.name" v-bind:key="post.order_id"></li></vs-button>
         </div></td></th>
 
+
     <div>
-      &nbsp;
+
+
+ <vs-table :data="users">
+
+   <template slot="thead">
+     <vs-th>Item</vs-th>
+     <vs-th>Purchased</vs-th>
+     <vs-th>Remaining</vs-th>
+     <vs-th>Redeem</vs-th>
+   </template>
+
+   <template slot-scope="{data}">
+     <vs-tr :state="indextr == 2 || indextr == 5 ? 'success':indextr == 6 ? 'danger':null" :key="indextr" v-for="(tr, indextr) in data">
+
+       <vs-td :data="data[indextr].website">
+      <li>UNDERWATER WORLD LANGKAWI</li>
+      Person Type: Adult<br>
+      Ticket Type: Malaysian - with MyKad
+       </vs-td>
+
+       <vs-td :data="data[indextr].id">
+      <li>3</li>
+       </vs-td>
+
+       <vs-td :data="data[indextr].website">
+      <li>0</li>
+       </vs-td>
+
+       <vs-td :data="data[indextr].username">
+      <li>0</li>
+       </vs-td>
+     </vs-tr>
+   </template>
+
+ </vs-table>
     </div>
-  <img src="./qr3.png" width="24%">
-        <li>796925f256cacaade1</li>
+    <div v-cloak>
+  <qr-canvas :options="options"></qr-canvas>
+</div>
+        <li></li>
   </tr>
 </td>
 </table>
       </div>
-    </vx-card>
 
 <table>
   <p>
   <tr>
-    <th><b>ITEM</b></th>
-    <th><b>PURCHASED</b></th>
-    <th><b>REMAINING</b></th>
-    <th><b>REDEEM</b></th>
   </tr>
   <tr>
-    <td>UNDERWATER WORLD LANGKAWI<p></p>
-      <h7><b>Person Type:</b></h7> Adult
-  </td>
-    <td>
-      <li v-for="post in posts" v-text="3.0" v-bind:key="post.order_id"></li>
-      </li>
-    <td>
-      <li v-for="post in posts" v-text="0.0" v-bind:key="post.order_id">
-      </li>
-    <td>
-      <vx-tooltip text="Tooltip Default">
-      <vs-input-number v-model="number1" />
-      </vx-tooltip>
-  </vx-input-group>
-    <td>
-      <li v-for="post in posts" v-text="" v-bind:key="post.quantity"></li>
-</td>
-  </tr>
-  <tr>
-    <td><h7><b>Ticket Type:</b></h7> Malaysian - with MyKad</td>
-    <td><li v-for="post in posts" v-text="0.0" v-bind:key="post.quantity"></li></td>
-        <td><li v-for="post in posts" v-text="0.0" v-bind:key="post.quantity"></li>
+    <td></td>
+        <td>
         </vx-input-group>
       </td>
         <div>
-
-            <vx-tooltip text="Tooltip Default">
-            <vs-input-number v-model="number2" />
-            </vx-tooltip>
         </div>
-
-        <li v-for="post in posts" v-text="post.order_items" v-bind:key=""></li>
-          <vs-button @click="randomCenter(barcodesearch)" color="success" type="gradient">Redeem</vs-button>
+        <!--  <vs-button @click="randomCenter(barcodesearch)" color="success" type="gradient">Redeem</vs-button> -->
         <td>
           <h7>&nbsp;</h7>
           <li v-if="post in posts" v-text="" v-bind:key=""></li>
+
 </td>
   </tr>
 </table>
@@ -130,11 +155,15 @@
   </vs-td>
            </tbody>
          </template>
+
         </vx-card>
     </ul>
     </div>
     </vs-tab>
   </vs-tabs>
+
+
+
 </template>
 
 <script>
@@ -146,9 +175,26 @@ export default {
   components: { QRCanvas,
     QrcodeStream },
   data () {
-    return {
+    return { users: [
+        {
+            "id": 1,
+            "username": "norsyafiqah binti norashid",
+            "name": "0",
+            "email": "UNDERWATER WORLD LANGKAWI",
+            "website": "1",
+        },
+        {
+            "id": 2,
+            "username": "norsyafiqah binti norashid",
+            "name": "0",
+            "email": "UNDERWATER WORLD LANGKAWI",
+            "website": "0",
+        },
+    ],
       options: {
-        data: 'post.order_id',
+      cellSize: 8,
+      correctLevel: 'H',
+      data: 'post.order_items',
       },
       number1: '0',
       number2: '0',
@@ -275,6 +321,7 @@ if(!moduleCommission.isRegistered) {
 }
 </script>
 
+
 <style lang="scss">
 table {
   border-spacing: 0;
@@ -287,4 +334,30 @@ td {
 .jsonOdd {
   background: #eee;
 }
+.v-cloak {
+  display: none;
+}
 </style>
+
+
+
+import LineChart from './Chart.vue'
+
+export default {
+  name: 'LineChartContainer',
+  components: { LineChart },
+  data: () => ({
+    loaded: false,
+    chartdata: null
+  }),
+  async mounted () {
+    this.loaded = false
+    try {
+      const { userlist } = await fetch('/api/userlist')
+      this.chartdata = userlist
+      this.loaded = true
+    } catch (e) {
+      console.error(e)
+    }
+  }
+}

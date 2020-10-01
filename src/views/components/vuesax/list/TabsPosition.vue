@@ -1,97 +1,118 @@
 <!-- =========================================================================================
-    File Name: TabsColor.vue
-    Description: Change color color of underline in tabs
+    File Name: TabsPosition.vue
+    Description: Rendering of default Tabs
     ----------------------------------------------------------------------------------------
-  	Item Name: TDMP - NETQUEST SOLUTIONS SB
-  	Author: TripcarteDev
-  	Author URL: http://tripcarte.gispatial.now.sh/
+    Item Name: Tripcarte.Asia Dashboard Management Portal
+    Developer: Netquest's TripcarteDev Team
+    GitHub URL: https://github.com/gispatial/tripcarte-asia-JWT
 ========================================================================================== -->
 
 <template>
-    <vx-card title="">
-      <vx-card>
-        <h4>ORDER DETAILS :</h4><br>
-        <div>
-          <ul>
-              <div class="flex bg-white p-6 chat-input-container">
-                  <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
-                  <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
-              </div>
-          </ul>
-          </div>
-        </td>
-    </th>
-  </tr>
+  <vs-tabs>
+    <vs-tab label="WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
+      <div class="demo-alignment">
+      <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
+      <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
+        <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
 
+         <qrcode-stream @decode="onDecode" @init="onInit" />
+           <div></div>
+           <div align="center"><h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
+      </vs-popup>
+  </div>
+    <div>
       <div>
-        &nbsp;
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or
+        </p>
       </div>
-      <div v-cloak>
-      <qr-canvas :options="options"></qr-canvas>
+
+      <ul>
+          <div>
+            <div class="flex bg-white p-6 chat-input-container">
+                <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
+                <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
+            </div>
+    </vs-prompt>
+      <!-- Append Button -->
+      <vx-input-group class="mb-base">
+      </vx-input-group>
+      <!-- /Append Button -->
+    </div>
+       <vx-card>
+         <h6>REDEMPTION STATUS:</h6>
+         <template slot="thead">
+           <vs-td>ITEM</vs-td>
+           <vs-td>PURCHASED</vs-td>
+         </template>
+
+         <template slot-scope="{data}">
+
+    <vx-card>
+      <div align="center">
+        <table style="width:100%">
+  <tr>
+    <th><br><h4>ORDER DETAILS :</h4><br>
+      <div>
+
+        <vs-button size="large">
+      <li v-for="post in posts" v-text="post.order_id"></li></vs-button>
       </div>
+      NAME :<br>
+  <div>
+  </div>
 
-      <table>
-
-        <thead>
-          <th>Purchased</th>
-          <th>Remaining</th>
-          <th>Redeem</th>
-        </thead>
-
-        <tbody>
-          <tr v-for='(person, index) in persons'>
-            <td>{{ index }}</td>
-            <td>{{ person.name }}</td>
-            <td>{{ person.age }}</td>
-          </tr>
-        </tbody>
-
-      <tbody>
-        <tr v-for='(person, index) in persons'>
-          <td>{{ index }}</td>
-          <td>{{ person.name }}</td>
-          <td>{{ person.age }}</td>
-        </tr>
-      </tbody>
-
-    </table>
-
-        <div class="demo-alignment">
-            <vs-list>
-
-
-  <vs-list-item title="Items">
-        <vs-chip color="warning">UNDERWATER WORLD LANGKAWI</vs-chip>
-  </vs-list-item>
-
-  <vs-list-item title="Person Type:">
-      <vs-chip color="warning">Adult</vs-chip>
-  </vs-list-item>
-
-  <vs-list-item title="Ticket Type:">
-        <vs-chip color="warning">Malaysian - with MyKad</vs-chip>
         <div>
 
-      </table></div>
-  </vs-list-item>
+    <vs-button size="large">
+<li v-for="post in posts" v-text="post.name"></li></vs-button>
+        </div></td></th>
 
-  <vs-list-item title="" subtitle="">
-        <vs-button color="danger">Redeem</vs-button>
-  </vs-list-item>
-</vs-list>
-
-        </div>
-
-        <template slot="codeContainer">
-  &lt;vs-list&gt;
-    &lt;vs-list-item title=&quot;One text&quot;&gt;&lt;/vs-list-item&gt;
-    &lt;vs-list-item title=&quot;Another text&quot; subtitle=&quot;A little text&quot;&gt;&lt;/vs-list-item&gt;
-    &lt;vs-list-item title=&quot;Some more text&quot;&gt;&lt;/vs-list-item&gt;
-    &lt;vs-list-item title=&quot;Even more text&quot; subtitle=&quot;Another little text&quot;&gt;&lt;/vs-list-item&gt;
-  &lt;/vs-list&gt;
-        </template>
-
+    <div>
+      &nbsp;
+    </div>
+    <div v-cloak>
+  <qr-canvas :options="options"></qr-canvas>
+</div>
+        <li></li>
+  </tr>
+</td>
+</table>
+      </div>
     </vx-card>
+
+<table>
+  <p>
+  <tr>
+  </tr>
+  <tr>
+    <td></td>
+        <td>
+        </vx-input-group>
+      </td>
+        <div>
+        </div>
+          <vs-button @click="randomCenter(barcodesearch)" color="success" type="gradient">Redeem</vs-button>
+        <td>
+          <h7>&nbsp;</h7>
+          <li v-if="post in posts" v-text="" v-bind:key=""></li>
+
+</td>
+  </tr>
+</table>
+    </vs-td>
+  </vs-td>
+           </tbody>
+         </template>
+
+        </vx-card>
+    </ul>
+    </div>
+    </vs-tab>
+  </vs-tabs>
+
+
+
 </template>
 
 <script>
@@ -248,3 +269,21 @@ if(!moduleCommission.isRegistered) {
 },
 }
 </script>
+
+
+<style lang="scss">
+table {
+  border-spacing: 0;
+}
+
+td {
+  padding: 2px 5px;
+}
+
+.jsonOdd {
+  background: #eee;
+}
+.v-cloak {
+  display: none;
+}
+</style>

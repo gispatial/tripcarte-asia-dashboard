@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 import TabsPosition from './TabsPosition.vue'
 export default{
     components: {

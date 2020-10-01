@@ -3,8 +3,8 @@
 	Description: Create bar chart
 	----------------------------------------------------------------------------------------
 	Item Name: Tripcarte.Asia Dashboard Management Portal
-	Author: Pixinvent
-	Author URL: http://www.themeforest.net/user/pixinvent
+	Author: TripcarteDev
+	Dev Github: https://github.com/gispatial/tripcarte-asia-dashboard
 ========================================================================================== -->
 
 

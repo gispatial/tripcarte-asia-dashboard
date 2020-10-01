@@ -9194,20 +9194,20 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qrcanvas-vue@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/qrcanvas-vue/-/qrcanvas-vue-2.0.5.tgz#33f9d6850525615f645cd6cecff65b48171bdd82"
-  integrity sha512-cS1KtTot7inl0RllpEEidUCOgDYYq7vaa5GYGWSxlVtFpBqOpatgsHpUOPjnhjrxecni5lwiMehsGD8HWmTwuA==
+qrcanvas-vue@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/qrcanvas-vue/-/qrcanvas-vue-2.1.0.tgz#8e4f56ad1a5a5479f240715a50930e709a01405c"
+  integrity sha512-hhq2+1ISlCSQx/yKRQK79OSUXOCuUGG+y6ZBMfylgRxRIGBgiaiDbhGvB+TfJeFeO7pPnbdIPfWNAQOSZ9qKtg==
   dependencies:
-    "@babel/runtime" "^7.9.2"
-    qrcanvas "^3.0.6"
+    "@babel/runtime" "^7.11.2"
+    qrcanvas "^3.1.2"
 
-qrcanvas@^3.0.6:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/qrcanvas/-/qrcanvas-3.1.1.tgz#92436d815133207862aa1bd0c3e3baa9f1b1d119"
-  integrity sha512-mbzbqFUSCrhhbdgd36VYJgROboX20Jv+hkZmZEIuqNQ/D65JHWWGltLGVEvK2gWfGcWVzJJrmECkffdEfzULSg==
+qrcanvas@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/qrcanvas/-/qrcanvas-3.1.2.tgz#81a25e91b2c27e9ace91da95591cbfb100d68702"
+  integrity sha512-lNcAyCHN0Eno/mJ5eBc7lHV/5ejAJxII0UELthG3bNnlLR+u8hCc7CR+hXBawbYUf96kNIosXfG2cJzx92ZWKg==
   dependencies:
-    "@babel/runtime" "^7.9.2"
+    "@babel/runtime" "^7.11.2"
     qrcode-generator "^1.4.4"
 
 qrcode-generator@^1.4.4:

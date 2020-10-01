@@ -5,8 +5,8 @@ const data = {
   emails: [
     {
       id: 1,
-      sender: 'tommys@mail.com',
-      sender_name: 'Tommy Sicilia',
+      sender: 'UNDERWATER WORLD LANGKAWI',
+      sender_name: 'UNDERWATER WORLD LANGKAWI',
       to: ['johndoe@mail.com'],
       // require('@/assets/images/portrait/small/avatar-s-1.jpg')
       img: require('@/assets/images/portrait/small/avatar-s-1.jpg'),
@@ -25,7 +25,7 @@ const data = {
     {
       id: 2,
       sender: 'tressag@mail.com',
-      sender_name: 'Tressa Gass',
+      sender_name: 'UNDERWATER WORLD LANGKAWI',
       to: ['johndoe@mail.com'],
       img: require('@/assets/images/portrait/small/avatar-s-2.jpg'),
       subject:  'Company Report',
@@ -43,7 +43,7 @@ const data = {
     {
       id: 3,
       sender: 'hettiem@mail.com',
-      sender_name: 'Hettie Mcerlean',
+      sender_name: 'UNDERWATER WORLD LANGKAWI',
       to: ['johndoe@mail.com', 'hello@pixinvent.net'],
       img: require('@/assets/images/portrait/small/avatar-s-3.jpg'),
       subject:  'Order Delivered',
@@ -58,7 +58,7 @@ const data = {
         {
           id: 4,
           sender: 'johndoe@mail.com',
-          sender_name: 'John Doe',
+          sender_name: 'UNDERWATER WORLD LANGKAWI',
           to: ['hettiem@mail.com'],
           img: require('@/assets/images/portrait/small/avatar-s-11.jpg'),
           subject:  '',
@@ -98,7 +98,7 @@ const data = {
     {
       id: 10,
       sender: 'louettae@mail.com',
-      sender_name: 'Louetta Esses',
+      sender_name: 'UNDERWATER WORLD LANGKAWI',
       to: ['johndoe@mail.com'],
       img: require('@/assets/images/portrait/small/avatar-s-4.jpg'),
       subject:  '',
@@ -116,7 +116,7 @@ const data = {
     {
       'id': 11,
       'sender': 'bposvner0@zdnet.com',
-      'sender_name': 'Bobbie Posvner',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@dot.gov'],
       'img': require('@/assets/images/portrait/small/avatar-s-11.jpg'),
       'subject': 'Re-contextualized zero administration toolset',
@@ -134,7 +134,7 @@ const data = {
     {
       'id': 12,
       'sender': 'rgilder1@illinois.edu',
-      'sender_name': 'Rebecca Gilder',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@google.co.uk'],
       'img': require('@/assets/images/portrait/small/avatar-s-6.jpg'),
       'subject': 'Integrated bi-directional help-desk',
@@ -152,7 +152,7 @@ const data = {
     {
       'id': 13,
       'sender': 'swilby2@yandex.ru',
-      'sender_name': 'Shawn Wilby',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@altervista.org'],
       'img': require('@/assets/images/portrait/small/avatar-s-1.jpg'),
       'subject': 'Devolved regional product',
@@ -170,7 +170,7 @@ const data = {
     {
       'id': 14,
       'sender': 'wmannering3@mozilla.org',
-      'sender_name': 'Waldemar Mannering',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@sciencedaily.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-13.jpg'),
       'subject': 'Quality-focused methodical flexibility',
@@ -188,7 +188,7 @@ const data = {
     {
       'id': 15,
       'sender': 'hfrostdyke4@scientificamerican.com',
-      'sender_name': 'Heath Frostdyke',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@weibo.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-13.jpg'),
       'subject': 'Secured optimal algorithm',
@@ -206,7 +206,7 @@ const data = {
     {
       'id': 16,
       'sender': 'pjentzsch5@tamu.edu',
-      'sender_name': 'Paulita Jentzsch',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@skype.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-18.jpg'),
       'subject': 'Profound user-facing frame',
@@ -224,7 +224,7 @@ const data = {
     {
       'id': 17,
       'sender': 'lminghetti6@yale.edu',
-      'sender_name': 'Lowell Minghetti',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@fda.gov'],
       'img': require('@/assets/images/portrait/small/avatar-s-4.jpg'),
       'subject': 'Reactive full-range encryption',
@@ -242,7 +242,7 @@ const data = {
     {
       'id': 18,
       'sender': 'efinessy7@sbwire.com',
-      'sender_name': 'Eugenie Finessy',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@odnoklassniki.ru'],
       'img': require('@/assets/images/portrait/small/avatar-s-2.jpg'),
       'subject': 'Polarised holistic protocol',
@@ -260,7 +260,7 @@ const data = {
     {
       'id': 19,
       'sender': 'tmckeurton8@163.com',
-      'sender_name': 'Tadio McKeurton',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@nifty.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-14.jpg'),
       'subject': 'Down-sized transitional intranet',
@@ -278,7 +278,7 @@ const data = {
     {
       'id': 20,
       'sender': 'ebegg9@wikia.com',
-      'sender_name': 'Eb Begg',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@51.la'],
       'img': require('@/assets/images/portrait/small/avatar-s-19.jpg'),
       'subject': 'Organized value-added model',
@@ -296,7 +296,7 @@ const data = {
     {
       'id': 21,
       'sender': 'mspata@sina.com.cn',
-      'sender_name': 'Modestine Spat',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@oracle.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-9.jpg'),
       'subject': 'Profound systemic alliance 🎉 🎊',
@@ -314,7 +314,7 @@ const data = {
     {
       'id': 22,
       'sender': 'cprandob@rambler.ru',
-      'sender_name': 'Chase Prando',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@vistaprint.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-2.jpg'),
       'subject': 'Centralized intermediate instruction set',
@@ -332,7 +332,7 @@ const data = {
     {
       'id': 23,
       'sender': 'nbartlesc@merriam-webster.com',
-      'sender_name': 'Normand Bartles',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@si.edu'],
       'img': require('@/assets/images/portrait/small/avatar-s-9.jpg'),
       'subject': 'Re-contextualized leading edge projection',
@@ -350,7 +350,7 @@ const data = {
     {
       'id': 24,
       'sender': 'rgennd@dedecms.com',
-      'sender_name': 'Robin Genn',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@about.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-6.jpg'),
       'subject': 'Team-oriented system-worthy intranet',
@@ -368,13 +368,13 @@ const data = {
     {
       'id': 25,
       'sender': 'eramelote@webeden.co.uk',
-      'sender_name': 'Emmalynn Ramelot',
-      'to': ['johndoe@tinypic.com'],
-      'img': require('@/assets/images/portrait/small/avatar-s-6.jpg'),
-      'subject': 'Phased eco-centric architecture',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
+      'to': [''],
+      'img': require('@/assets/images/portrait/small/IMG20200907155847.jpg'),
+      'subject': 'Spent 1 hour, Family with Children',
       'cc': [],
       'bcc': [],
-      'message': '<p>Hey John, </p><p><br></p><p>hightoby Maja vindicatorship unglobe poduran bronchodilatation uncontorted underwarden cyclometric orgiacs tigerhearted upscale curatize Scylliorhinidae slick unisolated nanocephalous cuirassier heartwise Venusian titanitic requirement antirestoration toluido</p><p><br></p><p>Trematosaurus procreant ethos pessimistic antiselene pisk Amphipneusta anconad Corchorus unswabbed sizable Balanites sardonical shovelbill trammeler carpetwork rhexis remade myelinated right bounteous unsin retroduction Montanist</p>',
+      'message': '<p>nice trip</p><div></div><img src="https://partners.tripcarte.asia/wp-content/uploads/formidable/12/IMG20200907155847.jpg" width="88"',
       'attachments': ['Augue.mp3'],
       'isStarred': true,
       'labels': ['personal'],
@@ -386,7 +386,7 @@ const data = {
     {
       'id': 26,
       'sender': 'pcuzenf@mediafire.com',
-      'sender_name': 'Penni Cuzen',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@google.es'],
       'img': require('@/assets/images/portrait/small/avatar-s-9.jpg'),
       'subject': 'Future-proofed motivating support',
@@ -404,7 +404,7 @@ const data = {
     {
       'id': 27,
       'sender': 'abaldersong@utexas.edu',
-      'sender_name': 'Ardis Balderson',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@ow.ly'],
       'img': require('@/assets/images/portrait/small/avatar-s-18.jpg'),
       'subject': 'Focused impactful open system 📷 😃',
@@ -422,7 +422,7 @@ const data = {
     {
       'id': 28,
       'sender': 'dmallallh@ask.com',
-      'sender_name': 'Dagmar Mallall',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@furl.net'],
       'img': require('@/assets/images/portrait/small/avatar-s-4.jpg'),
       'subject': 'Function-based local productivity',
@@ -440,7 +440,7 @@ const data = {
     {
       'id': 29,
       'sender': 'nmacgaughyi@aol.com',
-      'sender_name': 'Nada MacGaughy',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@cnet.com'],
       'img': require('@/assets/images/portrait/small/avatar-s-18.jpg'),
       'subject': 'Compatible object-oriented policy',
@@ -458,7 +458,7 @@ const data = {
     {
       'id': 30,
       'sender': 'douldcottj@yellowpages.com',
-      'sender_name': 'Dalila Ouldcott',
+      'sender_name': 'UNDERWATER WORLD LANGKAWI',
       'to': ['johndoe@github.io'],
       'img': require('@/assets/images/portrait/small/avatar-s-19.jpg'),
       'subject': 'User-friendly value-added application',
@@ -476,24 +476,54 @@ const data = {
   ],
   emailTags: [
     {
-      text: 'Personal',
+      text: 'Spent less than 1 hour',
       value : 'personal',
       color:'success'
     },
     {
-      text: 'Company',
-      value: 'company',
-      color:'primary'
+      text: 'Spent 1 hour',
+      value : 'personal',
+      color:'success'
     },
     {
-      text: 'Important',
+      text: 'Spent 2 hours',
+      value : 'personal',
+      color:'success'
+    },
+    {
+      text: 'Spent 4 hours',
+      value: 'personal',
+      color:'success'
+    },
+    {
+      text: 'Spent more than 4 hours',
+      value: 'personal',
+      color:'success'
+    },
+    {
+      text: 'Solo Traveler',
+      value: 'private',
+      color:'danger'
+    },
+    {
+      text: 'Couple',
       value: 'important',
       color:'warning'
     },
     {
-      text: 'Private',
-      value: 'private',
-      color:'danger'
+      text: 'Family with Children',
+      value: 'company',
+      color:'primary'
+    },
+    {
+      text: 'Group of Friends',
+      value: 'company',
+      color:'primary'
+    },
+    {
+      text: 'Company / Corporate',
+      value: 'company',
+      color:'primary'
     }
   ]
 }

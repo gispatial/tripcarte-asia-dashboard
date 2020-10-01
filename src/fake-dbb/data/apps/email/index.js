@@ -475,7 +475,7 @@ let data = {
     }
   ],
   emailTags: [
-    { text: 'Personal', value : 'personal', color:"success"},
+    { text: 'Spent less than 1 hour', value : 'Spent less than 1 hour', color:"success"},
     { text: 'Company', value: 'company', color:"primary"},
     { text: 'Important', value: 'important', color:"warning"},
     { text: 'Private', value: 'private', color:"danger"},

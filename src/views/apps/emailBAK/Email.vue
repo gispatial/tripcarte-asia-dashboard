@@ -25,32 +25,33 @@
 
             <!-- EMAIL ACTION BAR -->
             <div class="email__actions flex items-center flex-wrap justify-between p-4 border border-r-0 border-l-0 border-solid d-theme-border-grey-light">
-                <div class="flex items-center">
-                </div>
+                <!-- <div class="flex items-center">
+                    <vs-checkbox v-model="selectAllCheckBox" icon-pack="feather" :icon="selectAllIcon" class="select-all-chexkbox ml-0">Select All</vs-checkbox>
+                </div> -->
                 <div class="flex">
 
                     <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer" v-if="mailFilter != 'sent'">
 
+                        <feather-icon icon="FolderIcon" class="cursor-pointer" svg-classes="h-6 w-6"></feather-icon>
 
-
-                        <!-- <vs-dropdown-menu>
+                        <vs-dropdown-menu>
                             <vs-dropdown-item @click="moveTo('inbox')" v-if="mailFilter != 'inbox'">
                               <span class="flex items-center">
                                 <feather-icon icon="MailIcon" svgClasses="h-4 w-4" class="mr-2" />
                                 <span>Inbox</span>
                               </span>
-                            </vs-dropdown-item> -->
+                            </vs-dropdown-item>
 
                             <vs-dropdown-item @click="moveTo('draft')" v-if="mailFilter != 'draft'">
                               <span class="flex items-center">
-                                <!-- <feather-icon icon="Edit2Icon" svgClasses="h-4 w-4" class="mr-2" />
-                                <span>Draft</span> -->
+                                <feather-icon icon="Edit2Icon" svgClasses="h-4 w-4" class="mr-2" />
+                                <span>Draft</span>
                               </span>
                             </vs-dropdown-item>
 
                             <vs-dropdown-item @click="moveTo('spam')" v-if="mailFilter != 'spam'">
                               <span class="flex items-center">
-                                  <!--  <feather-icon icon="InfoIcon" svgClasses="h-4 w-4" class="mr-2" />
+                                <feather-icon icon="InfoIcon" svgClasses="h-4 w-4" class="mr-2" />
                                 <span>Spam</span>
                               </span>
                             </vs-dropdown-item>
@@ -58,7 +59,7 @@
                             <vs-dropdown-item @click="moveTo('trash')" v-if="mailFilter != 'trash'">
                               <span class="flex items-center">
                                 <feather-icon icon="TrashIcon" svgClasses="h-4 w-4" class="mr-2" />
-                                <span>Trash</span> -->
+                                <span>Trash</span>
                               </span>
                             </vs-dropdown-item>
                         </vs-dropdown-menu>
@@ -66,7 +67,7 @@
 
                     <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
 
-                        <!-- <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon> -->
+                        <feather-icon icon="TagIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6"></feather-icon>
 
                         <vs-dropdown-menu >
                           <vs-dropdown-item v-for="(label, index) in emailTags" :key="index" @click="updateLabels(label.value)" class="whitespace-no-wrap">
@@ -76,9 +77,9 @@
                         </vs-dropdown-menu>
                     </vs-dropdown>
 
-                    <!-- <feather-icon icon="MailIcon" class="ml-5 cursor-pointer" svg-classes="h-6 w-6" @click="updateMarkUnread" /> -->
+                    <feather-icon icon="MailIcon" class="ml-5 cursor-pointer" svg-classes="h-6 w-6" @click="updateMarkUnread" />
 
-                    <!-- <feather-icon v-if="mailFilter != 'trash'" icon="TrashIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6" @click="moveTo('trash')" /> -->
+                    <feather-icon v-if="mailFilter != 'trash'" icon="TrashIcon" class="cursor-pointer ml-5" svg-classes="h-6 w-6" @click="moveTo('trash')" />
                 </div>
             </div>
 

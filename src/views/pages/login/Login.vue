@@ -20,18 +20,14 @@
 
             <div align="center">
             </div>
+
+              <img src="@/assets/images/pages/new-login.png" alt="login" class="mx-auto" width="100%">
+
             <vs-list-header icon-pack="feather" icon="icon-shopping-cart" title="TRIPCARTE.ASIA"></vs-list-header>
-    <vs-list-item icon-pack="feather" icon="icon-check" title="The Dashboard Management Portal" subtitle="Prototype Ver-1.0"></vs-list-item>
+    <vs-list-item icon-pack="feather" icon="icon-check" title="The Dashboard Management Portal" subtitle="Get Discounted with Attraction Tickets for your Guests"></vs-list-item>
             <div>
               &nbsp;
             </div>
-              <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto" width="90%">
-               <vx-tooltip
-               title="Discounted Definition?"
-               color="danger"
-               text="Sale of attraction will be deduct from normal rates pricing with all terms & condition apply!">
-              <vs-button color="dark" type="flat">Get Discounted with Attraction Tickets for your Guests</vs-button>
-             </vx-tooltip>
               <div align="center"><b> </b></div>
               <div>
                 &nbsp;
@@ -56,19 +52,15 @@
 
                 <div class="vx-card__title mb-4">
                     <img src="@/assets/images/pages/logo-t2.png" alt="login" class="mx-auto" width="100%">
-                    <div>
-                      &nbsp;
-                    </div>
-                    <vs-list-header icon-pack="feather" title="WELCOME BACK"></vs-list-header>
-                  <p>
-                    <vx-tooltip
-                    color="danger"
-                    icon-pack="feather" icon="icon-check"
-                  text="Access merchant dashboard with your existing credentials. Signup are not required, if youre our returning existing merchant!">
-                 <vs-button color="dark" type="flat">Please log to access your current profile.</vs-button><div></div>
-               </vx-tooltip></p>
+                        <div>&nbsp;</div>
+                        <div class="vx-card__title mb-4">
+                            <h6 class="mb-4">LOGIN / REGISTER TO TRIPCARTE ASIA</h6>
+                            <p><h6>✔ Earn points</h6></p>
+                            <p><h6>✔ Redeem points for cheaper tickets</h6></p>
+                            <p><h6>✔ See your tickets on all your devices</h6></p>
+                            <p><h6>✔ Change / Cancel / Refund orders easily</h6></p>
+                        </div>
                 </div>
-
                 <vs-tabs>
                     <vs-tab label="LOGIN"></vs-tab></vs-tabs>
                     <login-jwt></login-jwt>

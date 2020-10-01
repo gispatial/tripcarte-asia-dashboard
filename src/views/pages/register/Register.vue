@@ -20,8 +20,11 @@
                         <div class="vx-col sm:w-full md:w-full lg:w-1/2 mx-auto self-center  d-theme-dark-bg">
                             <div class="px-8 pt-8 register-tabs-container">
                                 <div class="vx-card__title mb-4">
-                                    <h4 class="mb-4">Create Account</h4>
-                                    <p>Fill the below form to create a new account.</p>
+                                    <h4 class="mb-4">LOGIN / REGISTER TO TRIPCARTE ASIA</h4>
+                                    <p>✔ Earn points</p>
+                                    <p>✔ Redeem points for cheaper tickets</p>
+                                    <p>✔ See your tickets on all your devices</p>
+                                    <p>✔ Change / Cancel / Refund orders easily</p>
                                 </div>
                                 <vs-tabs>
                                   <vs-tab label="JWT">
