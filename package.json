@@ -73,6 +73,7 @@
     "vue2-google-maps": "^0.10.6",
     "vue2-hammer": "^2.1.2",
     "vuedraggable": "^2.24.0",
+    "vuejs-datatable": "^2.0.0-alpha.7",
     "vuejs-datepicker": "^1.5.4",
     "vuesax": "3.11.1",
     "vuex": "^3.5.1",

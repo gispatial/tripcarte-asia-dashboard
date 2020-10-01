@@ -10,13 +10,12 @@
 
 <template>
     <div id="todo-app" class="border border-solid d-theme-border-grey-light rounded relative overflow-hidden">
-
-                <vs-sidebar class="items-no-padding" parent="#todo-app" :click-not-close="clickNotClose" :hidden-background="clickNotClose" v-model="isSidebarActive">
-                    <todo-add-new />
+      <vs-sidebar class="items-no-padding" parent="#todo-app" :click-not-close="clickNotClose" :hidden-background="clickNotClose" v-model="isSidebarActive">
+          <todo-add-new />
                     <VuePerfectScrollbar class="todo-scroll-area" :settings="settings" :key="$vs.rtl">
                     <todo-filters @closeSidebar="toggleTodoSidebar"></todo-filters>
                     </VuePerfectScrollbar>
-                </vs-sidebar>
+            </vs-sidebar>
 
                 <div :class="{'sidebar-spacer': clickNotClose}" class="no-scroll-content border border-r-0 border-b-0 border-t-0 border-solid d-theme-border-grey-light no-scroll-content">
                     <div class="flex d-theme-dark-bg items-center border border-l-0 border-r-0 border-t-0 border-solid d-theme-border-grey-light">

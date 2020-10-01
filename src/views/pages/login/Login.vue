@@ -28,7 +28,10 @@
             <div>
               &nbsp;
             </div>
-              <div align="center"><b> </b></div>
+              <div align="center">
+                <b>
+                </b>
+              </div>
               <div>
                 &nbsp;
               </div>
@@ -51,10 +54,10 @@
               <div class="px-8 pt-8 login-tabs-container">
 
                 <div class="vx-card__title mb-4">
-                    <img src="@/assets/images/pages/logo-t2.png" alt="login" class="mx-auto" width="100%">
+                    <img src="@/assets/images/pages/logo-t2.png" alt="login" class="mx-auto" width="85%">
                         <div>&nbsp;</div>
                         <div class="vx-card__title mb-4">
-                            <h6 class="mb-4">LOGIN / REGISTER TO TRIPCARTE ASIA</h6>
+                            <h6 class="mb-4"><b>LOGIN / REGISTER TO TRIPCARTE ASIA</b></h6>
                             <p><h6>✔ Earn points</h6></p>
                             <p><h6>✔ Redeem points for cheaper tickets</h6></p>
                             <p><h6>✔ See your tickets on all your devices</h6></p>

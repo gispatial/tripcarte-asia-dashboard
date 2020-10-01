@@ -44,17 +44,16 @@
                 <span>{{ review.suited }}</span>
                 </feather-icon>
                 </vs-chip>
-            </div>
+              </div>
             </div>
             <p class="mt-2 truncate">{{ review.extra }}</p>
-        </vx-card>
+            </vx-card>
                 <div class="flex items-center">
                   <!--
                     <vs-checkbox v-model="isCompleted" class="w-8 m-0 vs-checkbox-small" @click.stop />
                     <h6 class="todo-title" :class="{'line-through': taskLocal.isCompleted}">{{ review.title }}</h6>
                   -->
-                  <div>
-                  </div>
+                  <div></div>
 
                     <!--<div v-for="(image, imageIndex) in review.files" :key="imageIndex" class="img-container w-32 mx-auto my-base">-->
 
@@ -98,30 +97,24 @@
             <div class="carousel-example">
         <!-- swiper -->
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <vx-card
-    title=""
-    title-color="primary"
-    content-color="warning"
-    subtitle="">
-</vx-card>
+        <vx-card title=""
+        title-color="primary"
+        content-color="warning"
+        subtitle=""></vx-card>
         <swiper :options="swiperOption" :dir="$vs.rtl ? 'rtl' : 'ltr'" :key="$vs.rtl">
-
                 <div class="vx-col w-full flex sm:items-center sm:flex-row flex-col">
                 </div>
     <swiper-slide v-for="(item, imageIndex) in review.files" :key="imageIndex" class="p-6 rounded cursor-pointer">
-              <img class="responsive w-28" :src="item" :alt="item" alt="banner">
+              <img class="responsive w-27" :src="item" :alt="item" alt="banner">
             </swiper-slide>
-
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
         </vx-card>
       </div>
     </div>
-            </div>
+      </div>
         </div>
     </div>
-
-
 </template>
 
 <script>

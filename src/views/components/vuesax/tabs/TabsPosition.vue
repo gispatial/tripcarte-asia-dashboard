@@ -13,123 +13,109 @@
     <div class="demo-alignment">
       <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
        <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
-        <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
-           <qrcode-stream @decode="onDecode" @init="onInit" />
-             <div>
-             </div>
-         <div align="center"><h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
-        </vs-popup>
+         <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
+          <qrcode-stream @decode="onDecode" @init="onInit" />
+          <div></div>
+         <div align="center">
+        <h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
+      </vs-popup></div>
+      <div>
+        &nbsp;
       </div>
-         <div>
-           <div>
-           <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or
-           </p>
-           </div>
-           <ul>
-             <div>
-            <div class="flex bg-white p-6 chat-input-container">
-                <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
-                <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
-            </div>
-    </vs-prompt>
+      <div align ="left">
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <b>Or</b>
+      </div>
+      <div>
+      </div>
+        <p>
+      </p></div>
+      <ul><div>
+        <div class="flex bg-white p-6 chat-input-container">
+          <vs-input class="mr-3 w-full" v-model="barcode" placeholder="Enter barcode" ></vs-input>
+          <vs-button icon-pack="feather" icon="icon-send" @click="barcodesearch"></vs-button>
+        </div>
+      </vs-prompt>
       <!-- Append Button -->
       <vx-input-group class="mb-base">
       </vx-input-group>
       <!-- /Append Button -->
-    </div>
-       <vx-card>
-
-         <h7>REDEMPTION STATUS:</h7>
+      </div>
+      <div id="vue-root">
+  <datatable :columns="columns" :data="rows"></datatable>
+      </div>
+       <vx-card><h7>REDEMPTION STATUS:</h7>
          <template slot="thead">
            <vs-td>ITEM</vs-td>
            <vs-td>PURCHASED</vs-td>
-         </template>
-
-         <template slot-scope="{data}">
+         </template><template slot-scope="{data}">
       <div align="center">
-        <table style="width:100%">
-  <tr>
+     <table style="width:100%"><tr>
     <th>Order details : </th>
     <th colspan="2">Qr Code :</th>
-  </tr>
-  <tr>
+  </tr><tr>
     <td><vs-button size="large">
-     Order details : <li v-for="post in posts" v-text="post.order_id"></li>
-     <br>
+     Order details : <li v-for="post in posts" v-text="post.order_id"></li><br>
     Name : <li v-for="post in posts" v-text="post.name"></li></vs-button></td>
-    <td></td>
-    <td><img src="./tc-code.svg" width="167"></td>
+    <td></td><td><img src="./tc-code.svg" width="167"></td>
   </tr>
-</table>
-      <td>
+ </table>
+    <td>
       </td>
         </table>
         <table style="width:100%">
-  <tr>
+      <tr>
     <th>
       <div>
       </div>
   <div>
   </div>
-
-        <div>
-
-        </div></td></th>
-
-
+  <div>
+    </div>
+      </td>
+      </th>
     <div>
-
-
- <vs-table :data="users">
-
+   <vs-table :data="users">
    <template slot="thead">
-     <vs-th>Item</vs-th>
-     <vs-th>Purchased</vs-th>
-     <vs-th>Remaining</vs-th>
-     <vs-th>Redeem</vs-th>
+   <vs-th>Item</vs-th>
+   <vs-th>Purchased</vs-th>
+   <vs-th>Remaining</vs-th>
+   <vs-th>Redeem</vs-th>
    </template>
-
    <template slot-scope="{data}">
      <vs-tr :state="indextr == 2 || indextr == 5 ? 'success':indextr == 6 ? 'danger':null" :key="indextr" v-for="(tr, indextr) in data">
-
        <vs-td :data="data[indextr].website">
       <li>UNDERWATER WORLD LANGKAWI</li>
       Person Type: Adult<br>
-      Ticket Type: Malaysian - with MyKad
+       Ticket Type: Malaysian - with MyKad
        </vs-td>
-
        <vs-td :data="data[indextr].id">
-      <li>3</li>
+       <li>3</li>
        </vs-td>
-
        <vs-td :data="data[indextr].website">
-      <li>0</li>
+       <li>0</li>
        </vs-td>
-
        <vs-td :data="data[indextr].username">
-      <li>0</li>
+       <li>0</li>
        </vs-td>
      </vs-tr>
    </template>
-
  </vs-table>
     </div>
     <div v-cloak>
-  <qr-canvas :options="options"></qr-canvas>
-</div>
-        <li></li>
+    <qr-canvas :options="options"></qr-canvas>
+   </div>
+  <li></li>
   </tr>
-</td>
-</table>
-      </div>
-
-<table>
-  <p>
-  <tr>
-  </tr>
-  <tr>
-    <td></td>
+ </td>
+</table></div><table>
+  <p><tr></tr>
+  <tr><td>
+    </td>
         <td>
         </vx-input-group>
       </td>
@@ -139,60 +125,21 @@
         <td>
           <h7>&nbsp;</h7>
           <li v-if="post in posts" v-text="" v-bind:key=""></li>
-
-</td>
-  </tr>
-</table>
+        </td></tr>
+      </table>
     </vs-td>
   </vs-td>
-           </tbody>
-         </template>
-         <div class="demo-alignment">
-
-      <vs-button color="primary" type="flat"
-        @click="$vs.notify({
-          title:'Position Default',
-          text:'Lorem ipsum dolor sit amet, consectetur',
-          color:'primary'})">Position Default</vs-button>
-
-      <vs-button color="success" type="flat"
-        @click="$vs.notify({
-          title:'Position top-right',
-          text:'Lorem ipsum dolor sit amet, consectetur',
-          color:'success',
-          position:'top-right'})">Position Top Right</vs-button>
-
-      <vs-button color="danger" type="flat"
-        @click="$vs.notify({
-          title:'Position top-left',
-          text:'Lorem ipsum dolor sit amet, consectetur',
-          color:'danger',
-          position:'top-left'})">Position Top Left</vs-button>
-
-      <vs-button color="warning" type="flat"
-        @click="$vs.notify({
-          title:'Position bottom-left',
-          text:'Lorem ipsum dolor sit amet, consectetur',
-          color:'warning',
-          position:'bottom-left'})">Position Bottom Left</vs-button>
-
-      <vs-button color="dark" type="flat"
-        @click="$vs.notify({
-          title:'Position bottom-center',
-          text:'Lorem ipsum dolor sit amet, consectetur',
-          color:'dark',
-          position:'bottom-center'})"> Position Bottom Center</vs-button>
+        </tbody>
+        </template>
+        <div class="demo-alignment">
 
       <vs-button @click="randomCenter()" color="danger" type="gradient">Position Top Center Random Color</vs-button>
   </div>
-
-        </vx-card>
+ </vx-card>
     </ul>
     </div>
     </vs-tab>
   </vs-tabs>
-
-
 
 </template>
 
@@ -200,22 +147,37 @@
 import { QRCanvas } from 'qrcanvas-vue'
 import { QrcodeStream, } from 'vue-qrcode-reader'
 import { VTree, VSelectTree}  from 'vue-tree-halower'
+import Vue from 'vue';
+import DatatableFactory from 'vuejs-datatable';
 import axios from "@../../axios"
+
+Vue.use(DatatableFactory);
 export default {
   components: { QRCanvas,
     QrcodeStream },
   data () {
+    new Vue({
+      el: '#vue-root',
+      data: {
+        columns: [
+          // column data
+        ],
+        rows: [
+          // row data
+        ]
+      }
+  });
     return { users: [
         {
             "id": 1,
-            "username": "norsyafiqah binti norashid",
+            "username": "3",
             "name": "0",
             "email": "UNDERWATER WORLD LANGKAWI",
             "website": "1",
         },
         {
             "id": 2,
-            "username": "norsyafiqah binti norashid",
+            "username": "1",
             "name": "0",
             "email": "UNDERWATER WORLD LANGKAWI",
             "website": "0",
@@ -245,11 +207,11 @@ export default {
       error: ''
     }
   },
-      computed: {
-        currentPage() {
-          if(this.isMounted) {
-            return this.$refs.table.currentx
-          }
+    computed: {
+      currentPage() {
+        if(this.isMounted) {
+          return this.$refs.table.currentx
+        }
           return 0
         },
         queriedItems() {
@@ -346,6 +308,7 @@ if(!moduleCommission.isRegistered) {
 }
 </script>
 
+<style>
 <style lang="scss">
 table {
   border-spacing: 0;
@@ -359,27 +322,32 @@ td {
 .v-cloak {
   display: none;
 }
-</style>
 
-
-
-import LineChart from './Chart.vue'
-
-export default {
-  name: 'LineChartContainer',
-  components: { LineChart },
-  data: () => ({
-    loaded: false,
-    chartdata: null
-  }),
-  async mounted () {
-    this.loaded = false
-    try {
-      const { userlist } = await fetch('/api/userlist')
-      this.chartdata = userlist
-      this.loaded = true
-    } catch (e) {
-      console.error(e)
-    }
-  }
+th.active .arrow.asc {
+    border-bottom: 4px solid #4d4d4d;
 }
+
+th.active .arrow.dsc {
+    border-top: 4px solid #4d4d4d;
+}
+
+.arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+}
+
+.arrow.asc {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #cdc;
+}
+
+.arrow.dsc {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #cdc;
+}
+</style>

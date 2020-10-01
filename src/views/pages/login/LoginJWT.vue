@@ -7,7 +7,7 @@
         icon-no-border
         icon="icon icon-user"
         icon-pack="feather"
-        label-placeholder="Username"
+        label-placeholder="USERNAME"
         v-model="username"
         class="w-full"/>
     <span class="text-danger text-sm">{{ errors.first('username') }}</span>
@@ -20,7 +20,7 @@
         icon-no-border
         icon="icon icon-lock"
         icon-pack="feather"
-        label-placeholder="Password"
+        label-placeholder="PASSWORD"
         v-model="password"
         class="w-full mt-6" />
     <span class="text-danger text-sm">{{ errors.first('password') }}</span>
