@@ -9,7 +9,7 @@
 import TabsPosition from './TabsPosition.vue'
 export default{
     components: {
-        TabsPosition,
+        TabsPosition
     }
 }
 </script>

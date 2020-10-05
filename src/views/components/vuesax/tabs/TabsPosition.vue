@@ -52,14 +52,19 @@
          <template slot="thead">
            <vs-td>ITEM</vs-td>
            <vs-td>PURCHASED</vs-td>
+           <vs-td>REMAINING</vs-td>
+           <vs-td>REDEEM</vs-td>
          </template><template slot-scope="{data}">
       <div align="center">
      <table style="width:100%"><tr>
-    <th>Order details : </th>
-    <th colspan="2">Qr Code :</th>
+    <th colspan="2"></th>
   </tr><tr>
-    <td><vs-button size="large">
-     Order details : <li v-for="post in posts" v-text="post.order_id"></li><br>
+    <td><vs-button size="medium">
+     Order details : <li v-for="post in posts" v-text="post.order_id"></li></vs-button></td>
+     <td></td>
+     <br>
+
+       <td><vs-button size="medium">
     Name : <li v-for="post in posts" v-text="post.name"></li></vs-button></td>
     <td></td><td><img src="./tc-code.svg" width="167"></td>
   </tr>
@@ -142,91 +147,42 @@
   </vs-tabs>
 
 </template>
+</template>
 
 <script>
-import { QRCanvas } from 'qrcanvas-vue'
 import { QrcodeStream, } from 'vue-qrcode-reader'
 import { VTree, VSelectTree}  from 'vue-tree-halower'
-import Vue from 'vue';
-import DatatableFactory from 'vuejs-datatable';
 import axios from "@../../axios"
-
-Vue.use(DatatableFactory);
 export default {
-  components: { QRCanvas,
-    QrcodeStream },
+  components: { QrcodeStream },
   data () {
-    new Vue({
-      el: '#vue-root',
-      data: {
-        columns: [
-          // column data
-        ],
-        rows: [
-          // row data
-        ]
-      }
-  });
-    return { users: [
-        {
-            "id": 1,
-            "username": "3",
-            "name": "0",
-            "email": "UNDERWATER WORLD LANGKAWI",
-            "website": "1",
-        },
-        {
-            "id": 2,
-            "username": "1",
-            "name": "0",
-            "email": "UNDERWATER WORLD LANGKAWI",
-            "website": "0",
-        },
-    ],
-      options: {
-      cellSize: 8,
-      correctLevel: 'H',
-      data: 'post.order_items',
-      },
-      number1: '0',
-      number2: '0',
-      title: '',
-      username: '',
-      siteUsername: '',
-      amount: '',
-      textarea: '',
+    return {
+      users: [
+          {
+              "id": 1,
+              "name": "Leanne Graham",
+              "username": "Bret",
+              "email": "Sincere@april.biz",
+              "website": "hildegard.org",
+            },
+              {
+                "id": 1,
+                "name": "Leanne Graham",
+                "username": "0",
+                "email": "Sincere@april.biz",
+                "website": "0"
+              }],
       activePrompt:false,
-      colorx:"#f16565",
+      colorx:"#f85959",
       popupActive: false,
       posts: '',
       barcode: '',
       result: '',
       input2: '',
-      activeColor: '#d71414',
-      fontSize: 12,
       error: ''
     }
   },
-    computed: {
-      currentPage() {
-        if(this.isMounted) {
-          return this.$refs.table.currentx
-        }
-          return 0
-        },
-        queriedItems() {
-          //return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
-          return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
-        }
-      },
   methods: {
-    randomCenter() {
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-      }
-      let color = `rgb(${getRandomInt(0,255)})`
-      this.$vs.notify({ title: 'Success!', text: 'Code has been redeemed', color: color, position: 'top-center' })
-    },
     barcodesearch() {
       axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: this.barcode },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
                   .then( (response) => this.posts = response.data )
@@ -235,7 +191,7 @@ export default {
     onDecode (result) {
       //this.result = result
       axios.post('https://partners.tripcarte.asia/wp-json/tripcarte_api/v2/redeem/',{ barcode: result },  { headers: { 'Authorization': `Bearer ${localStorage.getItem("accessToken")}` } })
-                  .then( (response) => this.posts = response.post.redeem )
+                  .then( (response) => this.posts = response.data )
                   .catch(error => this.posts = [{order_id: 'Invalid Barcode!'}]);
     },
     async onInit (promise) {
@@ -256,98 +212,14 @@ export default {
           this.error = "ERROR: Stream API is not supported in this browser"
         }
       }
-    },
-  commissions()
-  { return this.$store.state.commission.commissions },
-  queriedItems() {
-    //return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
-    return this.$refs.table ? this.$refs.table.queriedResults.length : this.commissions.length
+    }
   }
-},
-formatJson(filterVal, jsonData) {
-  return jsonData.map(v => filterVal.map(j => {
-    // Add col name which needs to be translated
-    // if (j === 'timestamp') {
-    //   return parseTime(v[j])
-    // } else {
-    //   return v[j]
-    // }
-    return v[j]
-  }))
-},
-clearFields() {
-  this.fileName = ""
-  this.cellAutoWidth = true
-  this.selectedFormat = "xlsx"
-},
-addNewData() {
-  this.sidebarData = {}
-  this.toggleDataSidebar(true)
-},
-deleteData(id) {
-  this.$store.dispatch("dataList/removeItem", id).catch(err => { console.error(err) })
-},
-editData(data) {
-  this.sidebarData = JSON.parse(JSON.stringify(this.blankData))
-  this.sidebarData = data
-  this.toggleDataSidebar(true)
-},
-getOrderStatusColor(status) {
-  if(status == 'Unpaid') return "warning"
-  if(status == 'Redeemed') return "success"
-  if(status == 'Unpaid') return "danger"
-  return "primary"
-},
-created() {
-if(!moduleCommission.isRegistered) {
-  this.$store.registerModule('commission', moduleCommission)
-  moduleCommission.isRegistered = true
-}
-//this.$store.dispatch("dataList/fetchDataListItems")
-},
 }
 </script>
 
-<style>
-<style lang="scss">
-table {
-  border-spacing: 0;
-}
-td {
-  padding: 2px 5px;
-}
-.jsonOdd {
-  background: #eee;
-}
-.v-cloak {
-  display: none;
-}
-
-th.active .arrow.asc {
-    border-bottom: 4px solid #4d4d4d;
-}
-
-th.active .arrow.dsc {
-    border-top: 4px solid #4d4d4d;
-}
-
-.arrow {
-    display: inline-block;
-    vertical-align: middle;
-    width: 0;
-    height: 0;
-    margin-left: 5px;
-}
-
-.arrow.asc {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 4px solid #cdc;
-}
-
-.arrow.dsc {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid #cdc;
+<style scoped>
+.error {
+  font-weight: bold;
+  color: red;
 }
 </style>
