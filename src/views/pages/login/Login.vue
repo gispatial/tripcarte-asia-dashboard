@@ -61,7 +61,6 @@
                             <p><h6>✔ Earn points</h6></p>
                             <p><h6>✔ Redeem points for cheaper tickets</h6></p>
                             <p><h6>✔ See your tickets on all your devices</h6></p>
-                            <p><h6>✔ Change / Cancel / Refund orders easily</h6></p>
                         </div>
                 </div>
                 <vs-tabs>
