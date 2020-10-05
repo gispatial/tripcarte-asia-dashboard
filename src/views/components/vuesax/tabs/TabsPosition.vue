@@ -11,13 +11,14 @@
   <vs-tabs>
   <vs-tab label="WEB REDEMPTION" icon-pack="feather" icon="icon-camera">
     <div class="demo-alignment">
-      <vs-button text-color="primary" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
-       <vs-popup fullscreen title="SCAN QR" :active.sync="popupActive">
+      <vs-button text-color="white" :color="colorx" @click="popupActive=true" type="filled">Start Scanning</vs-button>
+       <vs-popup background-color="#5b5b5b" :background-color-popup="colorx" class="" fullscreen title="SCAN YOUR QR" :active.sync="popupActive">
          <p class="error"><div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ error }}</div></p>
           <qrcode-stream @decode="onDecode" @init="onInit" />
           <div></div>
          <div align="center">
-        <h4><b>CLOSE THIS LID TO VIEW DETAILS OF YOUR SCAN RESULTS.</b></h4></div>
+           <div>&nbsp;</div>
+        <H5>CLOSE LID TO VIEW RESULTS.</H5></div>
       </vs-popup></div>
       <div>
         &nbsp;
@@ -56,14 +57,14 @@
   <tr>
     <th>
        Order details :<br>
-       <vs-button size="medium">
+       <vs-button size="small">
          <li v-for="post in posts" v-text="post.order_id"></li></vs-button><br>
        Name :<br>
        <vs-button size="small">
          <li v-for="post in posts" v-text="post.name"></li></vs-button>
      </th>
     <th></th>
-    <th><img src="./tc-code.svg" width="99"></th>
+    <th><img src="./tc-code.svg" width="48"></th>
     <th></th>
   </tr>
 </thead>
@@ -78,9 +79,9 @@
   <tbody>
   <tr>
   <td>
- <li><b>UNDERWATER WORLD LANGKAWI</b></li>
-  Person Type: Adult<br>
-  Ticket Type: Malaysian - with MyKad
+ <li><h5>UNDERWATER WORLD LANGKAWI</h5></li>
+  <h6>Person Type:</h6> Adult<br>
+  <h6>Ticket Type:</h6> Malaysian - with MyKad
   </td>
   <td><div align="center">3</div></td>
   <td><div align="center">0</div></td>
@@ -94,9 +95,9 @@
     <tbody>
     <tr>
     <td>
-   <li><b>UNDERWATER WORLD LANGKAWI</b></li>
-    Person Type: Child (3 - 12 years old)<br>
-    Ticket Type: Malaysian - with MyKad
+   <li><h5>UNDERWATER WORLD LANGKAWI</h5></li>
+    <h6>Person Type:</h6> Child (3 - 12 years old)<br>
+    <h6>Ticket Type:</h6> Malaysian - with MyKad
    </td>
     <td><div align="center">1</div></td>
     <td><div align="center">0</div></td>
@@ -130,8 +131,8 @@
      <vs-tr :state="indextr == 2 || indextr == 5 ? 'success':indextr == 6 ? 'danger':null" :key="indextr" v-for="(tr, indextr) in data">
        <vs-td :data="data[indextr].website">
       <li>UNDERWATER WORLD LANGKAWI</li>
-      Person Type: Adult<br>
-       Ticket Type: Malaysian - with MyKad
+      <b>Person Type:</b> Adult<br>
+       <b>Ticket Type:</b> Malaysian - with MyKad
        </vs-td>
        <vs-td :data="data[indextr].id">
        <li>3</li>
@@ -192,6 +193,8 @@ export default {
   components: { QrcodeStream },
   data () {
     return {
+      colorx:"#5b5b5b",
+      popupActive: false,
       users: [
           {
               "id": 1,
