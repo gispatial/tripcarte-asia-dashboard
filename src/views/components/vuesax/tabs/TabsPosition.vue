@@ -48,31 +48,66 @@
       <div id="vue-root">
   <datatable :columns="columns" :data="rows"></datatable>
       </div>
-       <vx-card><h7>REDEMPTION STATUS:</h7>
-         <template slot="thead">
-           <vs-td>ITEM</vs-td>
-           <vs-td>PURCHASED</vs-td>
-           <vs-td>REMAINING</vs-td>
-           <vs-td>REDEEM</vs-td>
-         </template><template slot-scope="{data}">
-      <div align="center">
-     <table style="width:100%"><tr>
-    <th colspan="2"></th>
-  </tr><tr>
-    <td><vs-button size="medium">
-     Order details : <li v-for="post in posts" v-text="post.order_id"></li></vs-button></td>
-     <td></td>
-     <br>
-
-       <td><vs-button size="medium">
-    Name : <li v-for="post in posts" v-text="post.name"></li></vs-button></td>
-    <td></td><td><img src="./tc-code.svg" width="167"></td>
+       <vx-card>
+         <template slot-scope="{data}">
+      <div align="left">
+     <table style="width:100%">
+<thead>
+  <tr>
+    <th>
+       Order details :<br>
+       <vs-button size="medium">
+         <li v-for="post in posts" v-text="post.order_id"></li></vs-button><br>
+       Name :<br>
+       <vs-button size="small">
+         <li v-for="post in posts" v-text="post.name"></li></vs-button>
+     </th>
+    <th></th>
+    <th><img src="./tc-code.svg" width="99"></th>
+    <th></th>
   </tr>
+</thead>
+  <thead>
+  <tr>
+  <th>Item</th>
+  <th>Purchase</th>
+  <th><div align="left">Remaining</div></th>
+  <th><div align="left">Redeem</div></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+ <li><b>UNDERWATER WORLD LANGKAWI</b></li>
+  Person Type: Adult<br>
+  Ticket Type: Malaysian - with MyKad
+  </td>
+  <td><div align="center">3</div></td>
+  <td><div align="center">0</div></td>
+  <td><div align="center">0</div></td>
+  </tr>
+  </tbody>
+  <div>
+  </div>
+  <thead>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+   <li><b>UNDERWATER WORLD LANGKAWI</b></li>
+    Person Type: Child (3 - 12 years old)<br>
+    Ticket Type: Malaysian - with MyKad
+   </td>
+    <td><div align="center">1</div></td>
+    <td><div align="center">0</div></td>
+    <td><div align="center">0</div></td>
+    </tr>
+    </tbody>
  </table>
     <td>
       </td>
         </table>
-        <table style="width:100%">
+        <!-- <table style="width:100%"> -->
       <tr>
     <th>
       <div>
@@ -84,13 +119,13 @@
       </td>
       </th>
     <div>
-   <vs-table :data="users">
+  <!--  <vs-table :data="users">
    <template slot="thead">
    <vs-th>Item</vs-th>
    <vs-th>Purchased</vs-th>
    <vs-th>Remaining</vs-th>
    <vs-th>Redeem</vs-th>
-   </template>
+ </template> -->
    <template slot-scope="{data}">
      <vs-tr :state="indextr == 2 || indextr == 5 ? 'success':indextr == 6 ? 'danger':null" :key="indextr" v-for="(tr, indextr) in data">
        <vs-td :data="data[indextr].website">
