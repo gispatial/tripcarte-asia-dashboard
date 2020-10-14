@@ -64,7 +64,7 @@
          <li v-for="post in posts" v-text="post.name"></li></vs-button>
      </th>
     <th></th>
-    <th><img src="./tc-code.svg" width="48"></th>
+    <th><img src="./tc-code.svg" width="100"></th>
     <th></th>
   </tr>
 </thead>
@@ -79,7 +79,7 @@
   <tbody>
   <tr>
   <td>
- <li><h5>UNDERWATER WORLD LANGKAWI</h5></li>
+ <li><h6>UNDERWATER WORLD LANGKAWI</h6></li>
   <h6>Person Type:</h6> Adult<br>
   <h6>Ticket Type:</h6> Malaysian - with MyKad
   </td>
@@ -95,7 +95,7 @@
     <tbody>
     <tr>
     <td>
-   <li><h5>UNDERWATER WORLD LANGKAWI</h5></li>
+   <li><h6>UNDERWATER WORLD LANGKAWI</h6></li>
     <h6>Person Type:</h6> Child (3 - 12 years old)<br>
     <h6>Ticket Type:</h6> Malaysian - with MyKad
    </td>
